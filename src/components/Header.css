@@ -1,0 +1,103 @@
+* {
+    /* 폰트 설정 */
+    font-family: 'Pretendard';
+}
+
+/* 헤더 전체 */
+.header-wrapper {
+    position: fixed; /* 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 80px; 
+    background-color: #ffffff; /* 화면이 1180px보다 클 때 양 옆을 채울 배경색 */
+    border-bottom: 1px solid #e3e3e3;
+    z-index: 1000; /* 다른 요소들 위에 보이도록 z-index 설정 */
+    display: flex;
+    justify-content: center; 
+}
+
+.header-container {
+    width: 1180px; /* 고정 너비 */
+    height: 100%;
+    display: flex;
+    justify-content: space-between; /* 내부 요소(로고, 메뉴, 아이콘) 정렬 */
+    align-items: center;
+}
+  
+/* 왼쪽 로고 부분 */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    margin-right: 10px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo-text .everytime {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #f91f15;
+}
+
+.logo-text .university {
+    font-size: 22px;
+    color: #292929;
+}
+
+/* 메뉴 부분 */
+.menu-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #444444;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+/* 메뉴 아이템에 마우스를 올렸을 때 */
+.menu-item a:hover {
+    color: #f91f15;
+}
+
+/* 활성화된 메뉴 아이템 스타일 */
+.menu-item.active a {
+    color: #f91f15;
+}
+
+/* 오른쪽 아이콘 부분 */
+.icons-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-wrapper {
+    color: #a3a3a3;
+    cursor: pointer;
+    border: 0.5px solid #c9c9c9;
+    padding: 5px 8px;
+    border-radius: 25%;
+}
+
+.icon-wrapper svg {
+    width: 25px;
+    height: 25px;
+}
