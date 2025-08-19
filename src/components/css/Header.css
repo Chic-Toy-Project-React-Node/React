@@ -78,7 +78,7 @@
 }
 
 /* 활성화된 메뉴 아이템 스타일 */
-.menu-item.active a {
+.menu-item a.active {
     color: #f91f15;
 }
 

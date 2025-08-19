@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #e9e9e9;
+    margin: 0;
+    color: #333;
+    padding-top: 80px;
+    margin: 10px;
+}
+  
+/* 사이드바 전체 컨테이너 */
+.side-bar {
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 컴포넌트 간의 간격 */
+}
+  
+/* 카드 스타일 (공통) */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    width: 100%;
+}
+  
+/* 학기 선택 드롭다운 */
+.season-selector select {
+    width: 100%;
+    height: 40px;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+
+    -webkit-appearance: none; /* 기본 화살표 제거 (Chrome, Safari) */
+    -moz-appearance: none;    /* 기본 화살표 제거 (Firefox) */
+    appearance: none;         /* 기본 화살표 제거 */
+
+    /* 아이콘 (추후 수정) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+  
+/* 현재 시간표 정보 카드 */
+.schedule-info {
+    padding: 16px;
+}
+
+.schedule-info .card-header .schedule-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+  
+.schedule-info .credits-info {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+  
+.schedule-info .credits {
+    color: #a6a6a6;
+    font-size: 12px;
+    font-weight: normal;
+}
+  
+.schedule-info .last-modified {
+    color: #a6a6a6;
+    font-size: 12px;
+}
+  
+.schedule-info .button-group {
+    display: flex;
+    margin-top: 10px;
+    width: 180px;
+    gap: 3px;
+}
+  
+.schedule-info .btn {
+    flex: 1; /* 버튼이 공간을 균등하게 차지 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 0.5px solid #e0e0e0;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    gap: 6px;
+}
+  
+.schedule-info .btn:hover {
+    background-color: #f1f1f1;
+}
+  
+  
+/* 3. 시간표 목록 */
+.schedule-list {
+    border: 0.5px solid #e0e0e0;
+}
+
+.schedule-list span {
+    padding: 16px;
+}
+
+.schedule-list .list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.schedule-list .list-item:hover {
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.schedule-list .list-item .schedule-name {
+    font-size: 20px;
+}
+
+.schedule-list .list-item .list-title {
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+  
+  
+/* 4. 시간표 생성 버튼들 */
+.schedule-actions {
+    margin-top: -12px;
+    width: 100%;
+    border: 0.5px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    border-top: none;
+    
+}
+
+
+.action-btn {
+    background: none;
+    border: none;
+    color: #f91f15; 
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    width: 100%;
+}
+
+.action-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.action-btn span:first-child {
+    margin-left: 15px;
+}
+
+.action-btn span:last-child {
+    padding: 16px 0px;
+}
+  
+.action-btn .icon {
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+.add-course {
+    width: 110px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background-color: #f91f15;
+    color: #fff;
+}
+
+.add-course:hover {
+    cursor: pointer;
+}
