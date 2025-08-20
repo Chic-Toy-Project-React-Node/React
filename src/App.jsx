@@ -18,7 +18,7 @@ function App() {
                 <main>
                     <Routes>
                         {/* 게시판 (기본 경로) */}
-                        <Route path="/boarddirectory" element={<BoardDirectory />} /> 
+                        <Route path="/" element={<BoardDirectory />} /> 
 
                         {/* 시간표 */}
                         <Route path="/schedule" element={<Schedule />} />

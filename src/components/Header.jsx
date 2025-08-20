@@ -9,7 +9,7 @@ function Header() {
 
     // 메뉴 설정
     const menuItems = [
-        { name: '게시판', path: '/boarddirectory '},
+        { name: '게시판', path: '/'},
         { name: '시간표', path: '/schedule' },
         { name: '강의실', path: '/classroom' },
         { name: '학점계산기', path: '/calculator' },
