@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import './css/Schedule.css';
-
+import TimeTable from './TimeTable';
 
 
 function Schedule() {
     return (
-        <>
+        <div className="main-container">
             <div className="side-bar">
                 <div className="season-selector">
                     <select name="season" id="selected-season">
-                        <option value="2025-winter">2025년 겨울학기</option>
                         <option value="2025-2">2025년 2학기</option>
                         <option value="2025-summer">2025년 여름학기</option>
                         <option value="2025-1">2025년 1학기</option>
@@ -39,8 +38,8 @@ function Schedule() {
                 {/* 3. 시간표 목록 및 생성 */}
                 <div className="card schedule-list">
                     <div className="list-item">
-                        <span className="schedule-name">😲</span>
-                        <span className="list-title">기본시간표</span>
+                        <span className="schedule-name">시간표입니당</span>
+                        <span className="active-schedule">기본시간표</span>
                     </div>
                 </div>
 
@@ -58,12 +57,12 @@ function Schedule() {
                 
             </div>
 
-            <div className="time-table"></div>
+            <TimeTable />
 
             <button className="add-course">
-                직접 추가
+                <span className="icon">+</span>&nbsp; 직접 추가
             </button>
-        </>
+        </div>
     );
 };
 
