@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from "./components/Header.jsx";
+import BoardDirectory from './components/BoardDirectory.jsx';
 
 // 라우팅 설정 (다른 페이지로 이동하는 기능)
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -17,7 +18,7 @@ function App() {
                 <main>
                     <Routes>
                         {/* 게시판 (기본 경로) */}
-                        {/* <Route path="/" element={<Board />} /> */}
+                        <Route path="/boarddirectory" element={<BoardDirectory />} /> 
 
                         {/* 시간표 */}
                         <Route path="/schedule" element={<Schedule />} />
