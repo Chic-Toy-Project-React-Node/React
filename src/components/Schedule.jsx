@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './css/Schedule.css';
 import TimeTable from './TimeTable';
 import AddCourse from './AddCourse';
@@ -7,6 +7,12 @@ import AddCourse from './AddCourse';
 function Schedule() {
     // 직접추가 버튼을 눌렀을 때 상태 관리
     const [AddCourseVisible, setAddCourseVisible] = useState(false); // 초기값은 false
+
+    // 여러 courseData 객체를 담을 배열 상태 추가
+    const [courses, setCourses] = useState([]);
+    
+    // 각 과목에 고유 ID를 부여하기 위한 ref 추가
+    const courseIdCounter = useRef(1);
 
     // 직접 추가 버튼을 클릭했을 때 실행 될 함수
     // AddCourse 컴포넌트를 화면에 표시
@@ -20,11 +26,23 @@ function Schedule() {
     }
 
     // AddCourse에서 저장 버튼을 눌렀을 때 실행되는 함수
-    const handleSaveCourse = () => {
-        console.log("강좌가 추가되었습니다.");
+    const handleSaveCourse = (courseData) => {
+        // 새 과목에 고유 ID를 추가
+        const courseWithId = { ...courseData, id: courseIdCounter.current };
 
+        // 기존 courses 배열에 새로 받은 과목 데이터를 추가하여 상태를 업데이트
+        setCourses(prevCourses => [...prevCourses, courseWithId]);
+
+        // 다음 ID를 위해 카운터를 1 증가
+        courseIdCounter.current += 1;
+
+        // AddCourse 창 닫기
         setAddCourseVisible(false);
-    }
+
+        // 확인용 로그 (추후 삭제)
+        console.log("강좌가 성공적으로 추가되었습니다.");
+        console.log(courses);
+    };
 
     return (
         <div className="main-container">
@@ -37,8 +55,7 @@ function Schedule() {
                     </select>
                 </div>
 
-
-                {/* 2. 현재 시간표 정보 카드 */}
+                {/* 현재 시간표 정보 카드 */}
                 <div className="card schedule-info">
                     <div className="card-header">
                         <span className="schedule-name">시간표입니당</span>
@@ -57,7 +74,7 @@ function Schedule() {
                     </div>
                 </div>
 
-                {/* 3. 시간표 목록 및 생성 */}
+                {/* 시간표 목록 및 생성 */}
                 <div className="card schedule-list">
                     <div className="list-item">
                         <span className="schedule-name">시간표입니당</span>
@@ -75,8 +92,6 @@ function Schedule() {
                         <span>마법사로 시간표 만들기</span>
                     </button>
                 </div>
-
-                
             </div>
 
             <TimeTable />
