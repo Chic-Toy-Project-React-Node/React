@@ -49,9 +49,30 @@ function Schedule() {
             <div className="side-bar">
                 <div className="season-selector">
                     <select name="season" id="selected-season">
-                        <option value="2025-2">2025년 2학기</option>
-                        <option value="2025-summer">2025년 여름학기</option>
-                        <option value="2025-1">2025년 1학기</option>
+                        <option>2025년 겨울학기</option>
+                        <option selected>2025년 2학기</option>
+                        <option>2025년 여름학기</option>
+                        <option>2025년 1학기</option>
+                        <option>2024년 겨울학기</option>
+                        <option>2024년 2학기</option>
+                        <option>2024년 여름학기</option>
+                        <option>2024년 1학기</option>
+                        <option>2023년 겨울학기</option>
+                        <option>2023년 2학기</option>
+                        <option>2023년 여름학기</option>
+                        <option>2023년 1학기</option>
+                        <option>2022년 겨울학기</option>
+                        <option>2022년 2학기</option>
+                        <option>2022년 여름학기</option>
+                        <option>2022년 1학기</option>
+                        <option>2021년 겨울학기</option>
+                        <option>2021년 2학기</option>
+                        <option>2021년 여름학기</option>
+                        <option>2021년 1학기</option>
+                        <option>2020년 겨울학기</option>
+                        <option>2020년 2학기</option>
+                        <option>2020년 여름학기</option>
+                        <option>2020년 1학기</option>
                     </select>
                 </div>
 

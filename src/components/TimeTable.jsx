@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import './css/TimeTable.css';
 
-
 function TimeTable() {
-
-
     return (
         <div className="time-table">
             <div className="table-head">
@@ -30,7 +27,7 @@ function TimeTable() {
                         <tr>
                             <th>
                                 <div className="hours">
-                                    <div className="hour" style={{ display: 'none' }}>0교시</div>
+                                    <div className="hour" style={{ display: 'none', height: '50px' }}>0교시</div>
                                     <div className="hour">1교시</div>
                                     <div className="hour">2교시</div>
                                     <div className="hour">3교시</div>
