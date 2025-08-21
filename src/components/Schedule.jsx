@@ -1,9 +1,31 @@
 import React, { useState } from 'react';
 import './css/Schedule.css';
 import TimeTable from './TimeTable';
+import AddCourse from './AddCourse';
 
 
 function Schedule() {
+    // 직접추가 버튼을 눌렀을 때 상태 관리
+    const [AddCourseVisible, setAddCourseVisible] = useState(false); // 초기값은 false
+
+    // 직접 추가 버튼을 클릭했을 때 실행 될 함수
+    // AddCourse 컴포넌트를 화면에 표시
+    const showAddCourse = () => {
+        setAddCourseVisible(true);
+    };
+
+    // AddCourse 컴포넌트를 닫을 때 실행되는 함수
+    const hideAddCourse = () => {
+        setAddCourseVisible(false);
+    }
+
+    // AddCourse에서 저장 버튼을 눌렀을 때 실행되는 함수
+    const handleSaveCourse = () => {
+        console.log("강좌가 추가되었습니다.");
+
+        setAddCourseVisible(false);
+    }
+
     return (
         <div className="main-container">
             <div className="side-bar">
@@ -59,9 +81,12 @@ function Schedule() {
 
             <TimeTable />
 
-            <button className="add-course">
+            <button className="add-course" onClick={showAddCourse}>
                 <span className="icon">+</span>&nbsp; 직접 추가
             </button>
+
+            {/* AddCourseVisible이 true일 때만 AddCourse 컴포넌트를 렌더링 */}
+            {AddCourseVisible && (<AddCourse onClose={hideAddCourse} onSave={handleSaveCourse} />)}
         </div>
     );
 };

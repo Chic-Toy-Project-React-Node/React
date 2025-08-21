@@ -9,6 +9,7 @@ function Header() {
 
     // 메뉴 설정
     const menuItems = [
+        // 기본 경로는 슬래시 뒤에 아무것도 쓰지 않음 (게시판이 기본)
         { name: '게시판', path: '/'},
         { name: '시간표', path: '/schedule' },
         { name: '강의실', path: '/classroom' },

@@ -4,7 +4,7 @@
 
 ---
 
-font: Pretendard
+Font: Pretendard
 
 Main Color: #f91f15  _(Red)_
 
@@ -21,3 +21,17 @@ Main Color: #f91f15  _(Red)_
 1. 에브리타임 로고는 assets/images에 저장되어 있음
 2. index.css에 폰트 정의됨 
 3. 헤더(메뉴)는 Header.jsx 컴포넌트 불러와 사용 
+
+---
+
+### Props 사용 시 빨간 밑줄이 그어지는 경우
+
+1. https://velog.io/@e-sum-e/error-is-missing-in-props-validation-eslint-reactprop-types
+
+2. https://risewithtosun.tistory.com/29
+
+(두 글을 모두 읽어보면 좋을 듯)
+
+*** 현재 프로젝트에서는 ESLint 설정을 수정하는 방법으로 해결 
+
+

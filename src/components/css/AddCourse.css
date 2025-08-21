@@ -1,0 +1,189 @@
+* {
+    font-family: 'Pretendard', sans-serif;
+}
+
+.add-container {
+    width: 545px;
+    min-height: 305px;
+    height: auto;
+    z-index: 50;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    padding: 25px;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+}
+
+.add-container h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.course-info .label {
+    display: inline-block;
+    margin-bottom: 5px;
+    width: 80px;
+    height: 30px;
+    font-size: 12px;
+    color: #a6a6a6;
+    font-weight: bold;
+}
+
+.course-info input {
+    width: 412px;
+    height: 32px;
+    padding: 0px 5px;
+    background-color: #f2f2f2;
+    border: 0.5px solid #a6a6a6;
+    outline: none;
+}
+
+#time-place {
+    display: inline-block;
+    width: 412px;
+    /* height: 74px; */
+    /* border: 0.5px solid #a6a6a6; */
+    vertical-align: top;
+    /* padding: 5px; */
+}
+
+#time-place li {
+    width: 412px;
+    height: 74px;
+    border: 0.5px solid #a6a6a6;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+
+input.place {
+    width: 92px;
+    height: 32px;
+    padding: 0px 5px;
+}
+
+.day-selector {
+    display: flex;
+    gap: 2px;
+}
+
+.day-button {
+    width: 25px;
+    height: 25px;
+    background-color: #f2f2f2;
+    color: #a6a6a6;
+    gap: 10;
+    border: none;
+    cursor: pointer;
+}
+
+.day-button.selected {
+    background-color: #f91f15;
+    color: #fff;
+}
+
+.time-place-selector {
+    padding-top: 5px;
+}
+
+.start-hour, .end-hour {
+    width: 77px;
+    height: 30px;
+    border: 0.5px solid #a6a6a6;
+    margin-right: 5px;
+    outline: none;
+}
+
+.start-minute, .end-minute {
+    width: 48px;
+    height: 30px;
+    border: 0.5px solid #a6a6a6;
+    margin-right: 5px;
+    outline: none;
+}
+
+#time-place .icon {
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+#time-place > button {
+    width: 65px;
+    height: 16px;
+    margin-top: 10px;
+    margin-left: -10px;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #f91f15;
+    cursor: pointer;
+}
+
+.tilde {
+    margin-right: 5px;
+}
+
+.save-btn {
+    float: right;
+    height: 30px;
+    background-color: #f91f15;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 30px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 40px;
+    margin-top: 10px;
+}
+
+.cancel-btn {
+    position: absolute;
+    right: 10px;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-weight: bold;
+    background-color: #a6a6a6;
+    font-size: 28px;
+    padding-bottom: 4px;
+}
+
+.cancel-btn:hover {
+    background-color: #f91f15;
+}
+
+.delete-item-container {
+    display: flex;
+    justify-content: end; /* 핵심: 요소들을 양쪽 끝으로 밀어냅니다. */
+    width: 100%; /* 컨테이너가 가로 전체 너비를 차지하도록 설정 */
+  }
+
+.delete-item-button {
+    width: 33px;
+    height: 20px;
+    position: relative;
+    top: -60px;
+    color: #f91f15;
+    background: none;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: -2px;
+    font-weight: bold;
+}
+
+#time-place li:first-child {
+    .delete-item-button {
+        display: none;
+    }
+}
