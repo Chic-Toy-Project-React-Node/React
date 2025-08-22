@@ -1,4 +1,3 @@
-/* 기본 리셋 및 박스 모델링 */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -77,7 +76,6 @@ table {
     border-bottom: none; /* 마지막 줄은 테두리 없음 */
 }
 
-
 /* 좌측 교시 표시 */
 .hours {
     display: flex;
@@ -86,7 +84,7 @@ table {
 }
 
 .hour {
-    height: 75px; /* 1시간 단위 높이 (grid 높이 * 2) */
+    height: 75px; /* 한 교시 단위 높이 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,7 +124,6 @@ table {
     border-bottom: none;
 }
 
-
 /* 실제 강의 정보가 들어갈 컨테이너 */
 .cols {
     position: absolute;
@@ -140,19 +137,62 @@ table {
 /* 개별 강의 블록 */
 .subject {
     position: absolute;
-    background-color: #dcedff; /* 배경색 */
-    /* border: 1px solid #dcedff; */
+    border-bottom: 0.5px solid #dcdcdc;
+    border-top: 0.5px solid #dcdcdc;
     padding: 8px;
     overflow: hidden;
     color: #333;
     width: 100%;
+}
 
-    /* --- 예시 위치 및 크기 --- */
-    /* 실제로는 React에서 동적으로 style을 지정해야 합니다. */
-    /* 예시: 수요일 567교시 (15:00 ~ 18:45) */
-    top: 300px; /* 그리드 하나가 50px */
-    height: 187.5px; 
-    /* 30분당 25px */
+/* 1, 11, 21, ... 번째 요소 */
+.subject:nth-child(10n + 1) {
+    background-color: #dcedff; /* 파란색 계열 */
+}
+
+/* 2, 12, 22, ... 번째 요소 */
+.subject:nth-child(10n + 2) {
+    background-color: #dfffe1; /* 녹색 계열 */
+}
+
+/* 3, 13, 23, ... 번째 요소 */
+.subject:nth-child(10n + 3) {
+    background-color: #fff4dc; /* 주황색 계열 */
+}
+
+/* 4, 14, 24, ... 번째 요소 */
+.subject:nth-child(10n + 4) {
+    background-color: #ffdde0; /* 붉은색 계열 */
+}
+
+/* 5, 15, 25, ... 번째 요소 */
+.subject:nth-child(10n + 5) {
+    background-color: #f0e1ff; /* 보라색 계열 */
+}
+
+/* 6, 16, 26, ... 번째 요소 */
+.subject:nth-child(10n + 6) {
+    background-color: #d9f7f0; /* 민트/청록 계열 */
+}
+
+/* 7, 17, 27, ... 번째 요소 */
+.subject:nth-child(10n + 7) {
+    background-color: #ffffd4; /* 연노랑 계열 */
+}
+
+/* 8, 18, 28, ... 번째 요소 */
+.subject:nth-child(10n + 8) {
+    background-color: #ffe5d9; /* 복숭아/살구 계열 */
+}
+
+/* 9, 19, 29, ... 번째 요소 */
+.subject:nth-child(10n + 9) {
+    background-color: #e0e8f0; /* 회하늘색 계열 */
+}
+
+/* 10, 20, 30, ... 번째 요소 */
+.subject:nth-child(10n + 10) {
+    background-color: #fde2f3; /* 연분홍/라일락 계열 */
 }
 
 .subject h3 {
@@ -172,43 +212,40 @@ table {
     }
 }
 
-/* 삭제 버튼 */
+/* 삭제, 수정 버튼 */
 .subject .status {
     position: absolute;
-    top: 8px;
-    right: 7px;
+    top: 5px;
+    right: 5px;
     display: none;
 }
 
-.subject .status .delete {
-    width: 15px;
-    height: 15px;
+.subject .status .delete, .subject .status .update {
     cursor: pointer;
     position: relative;
     opacity: 0.5;
+    border: none;
+    outline: none;
+    background: none;
+    margin: 1px;
 }
 
-.subject .status .delete:hover {
+.subject .status .delete:hover, .subject .status .update:hover {
     opacity: 1;
-}
-
-/* X 모양 만들기 (::before, ::after 사용) */
-.subject .status .delete::before,
-.subject .status .delete::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #555;
-    transform: translateY(-50%) rotate(45deg);
-}
-
-.subject .status .delete::after {
-    transform: translateY(-50%) rotate(-45deg);
 }
 
 .grid {
     height: 50px;
+}
+
+div.first {
+    line-height: 50px;
+}
+
+.subject span.prof {
+    font-weight: bold;
+}
+
+.subject span {
+    margin-right: 5px;
 }

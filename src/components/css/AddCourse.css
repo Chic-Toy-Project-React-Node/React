@@ -41,10 +41,7 @@
 #time-place {
     display: inline-block;
     width: 412px;
-    /* height: 74px; */
-    /* border: 0.5px solid #a6a6a6; */
     vertical-align: top;
-    /* padding: 5px; */
 }
 
 #time-place li {
@@ -54,7 +51,6 @@
     padding: 5px;
     margin-top: 5px;
 }
-
 
 input.place {
     width: 92px;
@@ -152,10 +148,8 @@ input.place {
     cursor: pointer;
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
     color: #fff;
-    font-weight: bold;
     background-color: #a6a6a6;
-    font-size: 28px;
-    padding-bottom: 4px;
+    font-size: 22px;
 }
 
 .cancel-btn:hover {
@@ -164,9 +158,9 @@ input.place {
 
 .delete-item-container {
     display: flex;
-    justify-content: end; /* 핵심: 요소들을 양쪽 끝으로 밀어냅니다. */
-    width: 100%; /* 컨테이너가 가로 전체 너비를 차지하도록 설정 */
-  }
+    justify-content: end; 
+    width: 100%; 
+}
 
 .delete-item-button {
     width: 33px;

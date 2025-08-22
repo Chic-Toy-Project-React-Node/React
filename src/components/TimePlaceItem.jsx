@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 function TimePlaceItem({ itemData, onChange, onDelete }) {
-
-    // input 값이 바뀔 때마다 부모에게 알리기
-    // const handleChange = (e) => {
-    //     const { name, value } = e.target;
-    //     // 부모가 준 onChange 함수를 호출
-    //     // "이 id를 가진 아이템의, 이 name 필드를, 이 value로 바꿔주세요!"
-    //     onChange(itemData.id, name, value);
-    // };
-        
     return (
         <li>
             {/* 요일 선택 버튼 그룹 */}
@@ -46,7 +37,7 @@ function TimePlaceItem({ itemData, onChange, onDelete }) {
                     <option>오후 10시</option>
                     <option>오후 11시</option>
                 </select>
-                <select className="start-minute" value={itemData.startTimeMinute} onChange={(e) => onChange(itemData.id, 'startMinute', e.target.value)}>
+                <select className="start-minute" value={itemData.startTimeMinute} onChange={(e) => onChange(itemData.id, 'startTimeMinute', e.target.value)}>
                     <option>0분</option>
                     <option>5분</option>
                     <option>10분</option>
@@ -102,8 +93,8 @@ function TimePlaceItem({ itemData, onChange, onDelete }) {
                     className="place"
                     type="text"
                     placeholder="예) 새104"
-                    value={itemData.Location}
-                    onChange={(e) => onChange(itemData.id, 'Location', e.target.value)}
+                    value={itemData.location}
+                    onChange={(e) => onChange(itemData.id, 'location', e.target.value)}
                 />
 
                 <div className="delete-item-container">
