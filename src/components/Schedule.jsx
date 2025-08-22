@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './css/Schedule.css';
 import TimeTable from './TimeTable';
 import AddCourse from './AddCourse';
+import ScheduleSetting from './ScheduleSetting';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"; 
 
@@ -33,7 +34,7 @@ function Schedule() {
             if (savedTimetable) {
                 return JSON.parse(savedTimetable);
             }
-            // 데이터가 없으면 초기 상태를 반환합니다.
+            // 데이터가 없으면 초기 상태 반환
             return { courses: [], lastModified: null };
         } catch (error) {
             console.error("저장된 시간표를 불러오는 데 실패했습니다.", error);
@@ -200,6 +201,13 @@ function Schedule() {
         }
     };
 
+    // 설정 컴포넌트의 표시 여부를 관리할 state 추가
+    const [isSettingVisible, setIsSettingVisible] = useState(false);
+
+    // 설정 컴포넌트를 열고 닫는 함수 추가
+    const showSetting = () => setIsSettingVisible(true);
+    const hideSetting = () => setIsSettingVisible(false);
+
     return (
         <div className="main-container">
             <div className="side-bar">
@@ -249,11 +257,14 @@ function Schedule() {
                         <button className="btn">
                             이미지
                         </button>
-                        <button className="btn">
+                        <button className="btn" onClick={showSetting}>
                             설정
                         </button>
                     </div>
                 </div>
+
+                {/* isSettingVisible이 true일 때 ScheduleSetting 컴포넌트 렌더링 */}
+                {isSettingVisible && <ScheduleSetting onClose={hideSetting} />}
 
                 {/* 시간표 목록 및 생성 */}
                 <div className="card schedule-list">
