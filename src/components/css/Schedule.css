@@ -118,13 +118,11 @@ body {
     font-size: 14px;
     font-weight: 500;
     border: 0.5px solid #e0e0e0;
-    background-color: #f9f9f9;
+    background-color: #fff;
     cursor: pointer;
     gap: 6px;
-}
-  
-.schedule-info .btn:hover {
-    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #737373;
 }
   
 /* 시간표 목록 */
@@ -224,3 +222,113 @@ body {
 }
 
 /* 시간표 설정 버튼 클릭 시 나오는 화면 디자인 (ScheduleSetting.jsx) */
+.modalwrap {
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.setting-container {
+    width: 400px;
+    padding: 25px;
+    background-color: #fff;
+    z-index: 9999;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.setting-container div {
+    margin-bottom: 15px;
+}
+
+.setting-container .setting-name {
+    width: 100%;
+    color: #292929;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.setting-container label.name, .default-label, h3.visibility {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #737373;
+    font-weight: bold;
+}
+
+.setting-container input#schedule-name {
+    width: 100%;
+    height: 30px;
+    padding: 0px 5px;
+    box-sizing: border-box;
+    outline: none;
+    border: 0.5px solid #e3e3e3;
+    font-size: 13px;
+    color: #292929;
+}
+
+.setting-container .radio-option {
+    margin: 0px 10px 0px 0px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #292929;
+    align-items: center;
+    gap: 5px;
+    display: inline-flex;
+}
+
+.default-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.default label {
+    font-size: 13px;
+    font-weight: normal;
+    color: #292929;
+}
+
+.setting-container .buttons {
+    width: 100%;
+    height: 30px;
+}
+
+.setting-container .delete-btn {
+    width: 50px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    color: #737373;
+    background-color: #f2f2f2;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.setting-container .setiing-save-btn {
+    width: 75px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    background-color: #f91f15;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
