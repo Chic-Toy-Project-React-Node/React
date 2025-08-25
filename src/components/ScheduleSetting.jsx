@@ -1,16 +1,16 @@
 import './css/Schedule.css';
 import React, { useState, useEffect } from 'react';
 
-
 function ScheduleSetting({ onClose, onSave, scheduleToEdit, onDelete, totalSchedules }) {
+    // 시간표 설정 정보 상태 관리
     const [scheduleInfo, setScheduleInfo] = useState({
         name: '',
         visibility: 'public',
         isDefault: true,
     });
 
-    // 컴포넌트가 처음 렌더링되거나 scheduleToEdit prop이 변경될 때 실행됩니다.
-    // 부모로부터 받은 기존 설정 정보로 state를 채워줍니다.
+    // 컴포넌트가 처음 렌더링되거나 scheduleToEdit prop이 변경될 때 실행
+    // 기존 설정 정보로 상태 채우기
     useEffect(() => {
         if (scheduleToEdit) {
             setScheduleInfo(scheduleToEdit);
@@ -19,7 +19,7 @@ function ScheduleSetting({ onClose, onSave, scheduleToEdit, onDelete, totalSched
             setScheduleInfo({
                 name: '',
                 visibility: 'public',
-                isDefault: totalSchedules === 0, // 시간표가 하나도 없다면 이 시간표가 기본값이 됨
+                isDefault: totalSchedules === 0, // 시간표가 하나도 없다면 해당 시간표가 기본값
             });
         }
     }, [scheduleToEdit, totalSchedules]);
@@ -43,7 +43,7 @@ function ScheduleSetting({ onClose, onSave, scheduleToEdit, onDelete, totalSched
         onClose();
     };
 
-    // [삭제 버튼 핸들러 추가]
+    // 삭제 버튼 클릭 시 실행될 함수
     const handleDelete = () => {
         if (scheduleToEdit && window.confirm(`'${scheduleToEdit.name}' 시간표를 삭제하시겠습니까?`)) {
             onDelete(scheduleToEdit.id);
@@ -51,7 +51,8 @@ function ScheduleSetting({ onClose, onSave, scheduleToEdit, onDelete, totalSched
         }
     };
 
-    // [체크박스 비활성화 여부 결정]
+    // 체크박스 비활성화 여부 결정
+    // 시간표가 하나밖에 없고, 그 시간표가 기본 시간표로 설정되어 있다면 체크박스 비활성화
     const isCheckboxDisabled = totalSchedules === 1 && scheduleInfo.isDefault;
 
     return (
@@ -100,7 +101,7 @@ function ScheduleSetting({ onClose, onSave, scheduleToEdit, onDelete, totalSched
                         <input type="checkbox" name="isDefault" id="schedule-default" 
                             checked={scheduleInfo.isDefault}
                             onChange={handleChange}
-                            // [비활성화 로직 추가]
+                            // 비활성화 로직
                             disabled={isCheckboxDisabled}
                         />
                         <label htmlFor="schedule-default">기본 시간표 설정</label>
