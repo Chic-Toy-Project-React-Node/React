@@ -5,3 +5,14 @@
     font-style: normal;
     src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
 }
+
+body {
+    padding-top: 80px;
+    background-color: #fff;
+}
+
+/* Schedule 페이지 전용 body 스타일 클래스 */
+.body-schedule-page {
+    background-color: #f8f8f8;
+}
+

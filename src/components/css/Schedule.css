@@ -2,25 +2,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
     font-family: 'Pretendard', sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    color: #333;
-    padding-top: 80px;
-    margin: 10px;
 }
 
-.main-container {
+.schedule-container {
     display: flex;
     gap: 24px;
     justify-content: space-around;
     align-items: flex-start;
     width: 100%;
     max-width: 1900px; /* 최대 너비를 1900px로 제한 */
-    margin: 0 auto; /* 페이지 중앙에 배치 */
+    margin: 10px auto; /* 페이지 중앙에 배치 */
+    background-color: #f8f8f8;
 }
   
 /* 사이드바 전체 컨테이너 */

@@ -34,6 +34,17 @@ const createDefaultScheduleData = () => {
 };
 
 function Schedule() {
+    // 배경색 css
+    useEffect(() => {
+        // Schedule 컴포넌트가 마운트(등장)되면 body에 전용 클래스를 추가
+        document.body.classList.add('body-schedule-page');
+
+        // 컴포넌트가 언마운트(사라질 때)되면 추가했던 클래스를 제거 (뒷정리)
+        return () => {
+            document.body.classList.remove('body-schedule-page');
+        };
+    }, []); // 컴포넌트가 처음 생기고 사라질 때 딱 한 번씩만 실행
+
     // 현재 선택 된 학기 상태 관리
     const [currentSeason, setCurrentSeason] = useState('2025-2');
 
@@ -438,7 +449,7 @@ function Schedule() {
     };
 
     return (
-        <div className="main-container">
+        <div className="schedule-container">
             <div className="side-bar">
                 <div className="season-selector">
                 <select name="season" id="selected-season" value={currentSeason} onChange={(e) => setCurrentSeason(e.target.value)}>

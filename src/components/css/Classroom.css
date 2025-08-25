@@ -1,0 +1,114 @@
+.classroom-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1900px; /* 최대 너비를 1900px로 제한 */
+    margin: 10px auto; /* 페이지 중앙에 배치 */
+    padding-top: 10px;
+}
+
+.side-bar {
+    width: 300px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    height: 48px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: #f1f1f1;
+    padding-left: 16px;
+    font-size: 16px;
+    color: #111;
+}
+
+.search-box input::placeholder {
+    color: #a9a9a9;
+}
+
+.search-box input:focus {
+    caret-color: #f91F15;
+}
+
+.search-box .search-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    right: 15px;
+    cursor: pointer;
+}
+
+.point-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border: 0.5px solid #dddddd;
+    border-radius: 10px;
+}
+
+.point-box span:first-child {
+    color: #292929;
+    font-size: 14px;
+}
+
+.point-box .point {
+    font-weight: bold;
+    font-size: 14px;
+    color: #f91F15;
+}
+
+.reviews {
+    width: 450px;
+}
+
+.review-card {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 0.5px solid #dddddd;
+    cursor: pointer;
+}
+
+.review-card .course-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    padding-top: 5px;
+}
+
+.review-card .prof-name {
+    font-size: 14px;
+    color: #737373;
+    margin-bottom: 5px;
+}
+
+/* 별점 자리 */
+.review-card .stars {
+    margin-bottom: 5px;
+}
+
+
+.review-card .user-season {
+    color: #a6a6a6;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.review-card .course-review {
+    font-size: 14px;
+    color: #444;
+    padding-top: 3px;
+    padding-bottom: 8px;
+}
