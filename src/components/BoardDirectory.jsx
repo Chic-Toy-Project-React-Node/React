@@ -1,9 +1,12 @@
 // src/components/BoardDirectory.jsx
 import './css/BoardDirectory.css';
+import Sidebar from "./Board_Sidebar"
+import MainBoard from './MainBoard.jsx'
 
 function BoardDirectory() {
   return (
-    <section className="dir-wrap">
+    <div classname ="Top">
+    <section className="main">
       {/* 1줄: 자유/비밀/새내기 */}
       <div className="line">
         <p><a href="/">자유 게시판</a></p>
@@ -28,6 +31,9 @@ function BoardDirectory() {
         <p><a href="/">구름사진 게시판</a></p>
       </div>
     </section>
+    <Sidebar></Sidebar>
+    <MainBoard></MainBoard>
+    </div>
   );
 }
 

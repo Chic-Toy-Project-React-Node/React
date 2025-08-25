@@ -1,15 +1,16 @@
 /* dir-wrap을 화면 중앙에 배치 */
-.dir-wrap {
+.main {
   display: flex;
   justify-content: center;  /* 가로 가운데 */
   gap: 40px;                /* 열 간격 */
   margin: 0 auto;           /* 브라우저 기본 여백에서 중앙 배치 */
   padding: 20px 0;
-  font-size : 14px
+  font-size : 14px;
+  background-color: #f8f8f8;
 }
 
 /* line은 세로로 배치 */
-.dir-wrap .line {
+.main .line {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -18,12 +19,12 @@
 }
 
 /* 링크 기본 스타일 */
-.dir-wrap .line a {
+.main .line a {
   text-decoration: none;
   color: black;
   font-weight: : 15;
 }
 
-.dir-wrap .line a:hover {
+.main .line a:hover {
   color: #f91f15;
 }

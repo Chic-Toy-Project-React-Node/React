@@ -1,0 +1,27 @@
+.mainCard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2열 고정 */
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  background-color: #fff;
+}
+
+.mainName {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #c00;
+}
+
+.card a {
+    color : black;
+}
+
+.mainName a {
+    color : red;
+    text-decoration : none;
+}

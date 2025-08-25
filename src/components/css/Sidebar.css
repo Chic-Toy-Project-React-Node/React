@@ -1,0 +1,80 @@
+/* src/components/css/Sidebar.css */
+.sidebar {
+  width: 220px;
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-left : 20%;
+  margin-top : 30px;
+
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.info .nickname {
+  font-weight: bold;
+}
+
+.info .userid {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  gap : 8px;
+  justify-content: center;
+}
+
+.btn {
+  margin-bottom: 6px;
+  padding: 6px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  cursor: pointer;
+}
+
+.activity ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.activity li {
+  margin-bottom: 8px;
+}
+
+.activity a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #333;
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.id_list {
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 6px 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  cursor: pointer;
+}
