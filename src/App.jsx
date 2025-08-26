@@ -9,6 +9,8 @@ import Schedule from './components/Schedule.jsx';
 import BoardDirectory from './components/BoardDirectory.jsx';
 import Classroom from './components/Classroom.jsx';
 import CourseReview from './components/CourseReview.jsx';
+import Calculator from './components/Calculator';
+
 
 function App() {
     return (
@@ -32,7 +34,7 @@ function App() {
                         <Route path="/classroom/review" element={<CourseReview />} />
 
                         {/* 학점계산기 */}
-                        
+                        <Route path="/calculator" element={<Calculator />} />
                     </Routes>
                 </main>
             </div>
