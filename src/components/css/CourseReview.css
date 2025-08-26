@@ -32,10 +32,10 @@
     text-align: left;
     background: none;
     cursor: pointer;
-    margin: -5px;
+    margin: -2px;
 }
 
-.side-bar > button.active, .side-bar button:focus {
+.side-bar > button.active {
     background-color: #fff3f3;
     font-weight: bold;
 }
@@ -123,6 +123,9 @@
 
 
 /* 나중에 별점 아이콘 수정 */
+.overview-block .review-box .rating {
+    font-size: 8px;
+}
 
 
 .overview-block .review-box .semester {
@@ -153,4 +156,133 @@
     color: #737373;
     background-color: #f2f2f2;
     cursor: pointer;
+}
+
+.review-content-block .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px 10px 10px;
+}
+
+.review-header > .rating-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.review-header > .rating-box > .avg-rating {
+    font-weight: bold;
+    font-size: 22px;
+    color: #292929;
+}
+
+.review-header > .review-sort .rating-filter-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.review-header > .review-sort .rating-filter-dropdown > .dropdown-toggle {
+    padding: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    font-size: 12px;
+    color: #737373;
+}
+
+.review-header > .review-sort .rating-filter-dropdown > .dropdown-toggle > span {
+    margin-right: 5px;
+}
+
+.review-header > .review-sort .rating-filter-dropdown > .dropdown-toggle > span:first-child {
+    font-weight: bold;
+}
+
+.review-header > .review-sort .rating-filter-dropdown > .dropdown-toggle > .selected-rating {
+    font-size: 12px;
+}
+
+.review-header > .review-sort .rating-filter-dropdown > .dropdown-toggle > .selected-rating .star-icon {
+    margin-right: 5px;
+    color: #ffca37;
+    font-size: 10px;
+}
+
+.review-header > .review-sort .rating-filter-dropdown > .dropdown-menu {
+    position: absolute;  
+    top: 38px;          
+    left: 0;           
+    width: 80px;          
+    z-index: 10;  
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    padding: 8px 0;
+    border-radius: 8px;
+}
+
+.rating-filter-dropdown > .dropdown-menu .dropdown-item {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    height: 36px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.rating-filter-dropdown > .dropdown-menu .dropdown-item > .star-icon {
+    font-size: 10px;
+    margin-right: 4px;
+    color: #ffca37;
+}
+
+.rating-filter-dropdown > .dropdown-menu .dropdown-item > .item-label {
+    font-size: 14px;
+    color: #292929;
+}
+
+.rating-filter-dropdown > .dropdown-menu .dropdown-item > .item-count {
+    margin-left: 4px;
+    color: #737373;
+    font-size: 12px;
+}
+
+.review-content-block {
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+    height: calc(100vh - (110px));
+}
+
+.review-content-block > .all-reviews-list {
+    flex-grow: 1; /* ★★★ 핵심: 남는 공간을 모두 차지하도록 만듭니다. */
+    overflow-y: auto; /* 세로 스크롤은 필요할 때만 자동으로 나타나게 합니다. */
+    min-height: 0; 
+}
+
+.review-content-block > .all-reviews-list .review-card {
+    cursor: default;
+}
+
+.review-content-block > .all-reviews-list .review-card > .rating {
+    font-size: 10px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+}
+
+.review-content-block > .all-reviews-list .review-card > .semester {
+    color: #a6a6a6;
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+
+.review-content-block > .all-reviews-list .review-card > .content {
+    font-size: 14px;
+    color: #444;
+    white-space: pre-wrap;
+    word-break: break-word;
+    line-height: 20px;
 }

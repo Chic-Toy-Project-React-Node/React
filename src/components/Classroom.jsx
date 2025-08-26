@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/Classroom.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; 
+// [추가] 별 아이콘(채워진 것과 빈 것)을 import 합니다.
+import { faMagnifyingGlass, faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons"; 
+import { faStar } from "@fortawesome/free-regular-svg-icons";
 
 function Classroom() {
     // 강의평 목록을 저장할 state (추후 api로 불러올 것)
@@ -17,7 +19,7 @@ function Classroom() {
                     reviewId: 101, // 리뷰만의 고유 ID
                     rating: 4,
                     semester: '24년 2학기 수강자',
-                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. '
+                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
                 },
                 {
                     reviewId: 102,
@@ -30,7 +32,37 @@ function Classroom() {
                     rating: 5,
                     semester: '23년 2학기 수강자',
                     content: '인생 강의입니다! 다만 팀플원 잘 만나는게 중요해요.'
-                }
+                },
+                {
+                    reviewId: 104, // 리뷰만의 고유 ID
+                    rating: 4,
+                    semester: '24년 2학기 수강자',
+                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+                },
+                {
+                    reviewId: 105, // 리뷰만의 고유 ID
+                    rating: 4,
+                    semester: '24년 2학기 수강자',
+                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+                },
+                {
+                    reviewId: 106, // 리뷰만의 고유 ID
+                    rating: 4,
+                    semester: '24년 2학기 수강자',
+                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+                },
+                {
+                    reviewId: 107, // 리뷰만의 고유 ID
+                    rating: 4,
+                    semester: '24년 2학기 수강자',
+                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+                },
+                {
+                    reviewId: 108, // 리뷰만의 고유 ID
+                    rating: 4,
+                    semester: '24년 2학기 수강자',
+                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+                },
             ]
         },
         {
@@ -56,7 +88,22 @@ function Classroom() {
         navigate('/classroom/review', { state: courseData });
     };
 
-
+    // [추가] 별점 렌더링 함수
+    // 점수(rating)를 받아서 점수만큼 채워진 별 아이콘을 배열로 반환합니다.
+    const renderStars = (rating) => {
+        const stars = [];
+        const fullStars = Math.floor(rating); // 정수 부분만 채워진 별로 표시
+        for (let i = 0; i < 5; i++) {
+            if (i < fullStars) {
+                // 채워진 별 (solid)
+                stars.push(<FontAwesomeIcon key={i} icon={faStarSolid} color="#ffca37" size="2xs" />);
+            } else {
+                // 빈 별 (regular)
+                stars.push(<FontAwesomeIcon key={i} icon={faStarSolid} color="lightgray" size="2xs" />);
+            }
+        }
+        return stars;
+    };
 
     return(
         <div className="classroom-container">
@@ -89,7 +136,7 @@ function Classroom() {
                             <p className="prof-name">{course.profName}</p>
                             
                             {/* 리뷰 정보는 review 객체에서 가져옴 */}
-                            <div className="stars">별점(나중에 아이콘 변경) {review.rating}</div>
+                            <div className="stars">{renderStars(review.rating)}</div>
                             <div className="user-season">{review.semester}</div>
                             <p className="course-review">{review.content}</p>
                         </div>
