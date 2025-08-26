@@ -37,7 +37,7 @@ function TimeTable({ courses, onUpdate, onDelete }) {
         // showEarlyHours 값에 따라 기준 시간을 동적으로 설정
         const baselineMinutes = showEarlyHours ? 480 : 540; // true이면 8시(480), false이면 9시(540)
 
-        courses.forEach(course => {
+        courses.forEach((course, courseIndex) => {
             (course.timePlaces || []).forEach(timePlace => {
                 const startMinutes = timeToMinutes(timePlace.startTimeHour, timePlace.startTimeMinute);
                 const endMinutes = timeToMinutes(timePlace.endTimeHour, timePlace.endTimeMinute);
@@ -45,14 +45,20 @@ function TimeTable({ courses, onUpdate, onDelete }) {
 
                 // 1시간(60분) = 50px (1교시 높이) 기준
                 const height = (durationMinutes / 60) * 50;
-
                 // 동적으로 설정된 baselineMinutes를 기준으로 top 계산
                 const top = ((startMinutes - baselineMinutes) / 60) * 50;
+
+                // --- ▼▼▼ 핵심 수정 부분 ▼▼▼ ---
+                // 과목의 순서(index)에 따라 10가지 색상을 순환하며 클래스 이름 부여
+                const colorIndex = (courseIndex % 10) + 1; // 1부터 10까지의 숫자 생성
+                const colorClassName = `color-${colorIndex}`; // 예: "color-1", "color-2"
+                // --- ▲▲▲ ---
 
                 classBlocks.push({
                     id: `${course.id}-${timePlace.id}`, // 고유 key
                     day: timePlace.selectedDay,
                     style: { top: `${top}px`, height: `${height}px` },
+                    className: colorClassName, // <-- 새로 추가된 속성
                     info: {
                         id: course.id,
 
@@ -127,6 +133,9 @@ function TimeTable({ courses, onUpdate, onDelete }) {
                                                     key={cls.id} 
                                                     courseInfo={cls.info} 
                                                     style={cls.style} 
+                                                    // --- ▼▼▼ className prop 전달 ▼▼▼ ---
+                                                    className={cls.className} // <-- 새로 추가된 prop
+                                                    // --- ▲▲▲ ---
                                                     onDelete={() => onDelete(cls.info.id)}
                                                     onUpdate={() => onUpdate(cls.info.id)}
                                                 />

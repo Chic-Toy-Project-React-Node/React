@@ -17,14 +17,14 @@ ul, li {
 }
 
 /* 테이블 기본 스타일 */
-table {
+.time-table table {
     width: 100%;
     border-collapse: collapse; /* 테두리 겹침 방지 */
     table-layout: fixed; /* 테이블 레이아웃을 고정하여 컬럼 너비를 일정하게 유지 */
 }
 
 /* 상단 요일 헤더 */
-.table-head table th {
+.time-table .table-head table th {
     width: 60px;
 }
 
@@ -58,7 +58,7 @@ table {
 }
 
 /* 배경 그리드 (30분 단위 선) */
-.grids {
+.table-body .grids {
     position: absolute;
     top: 0;
     left: 0;
@@ -77,7 +77,7 @@ table {
 }
 
 /* 좌측 교시 표시 */
-.hours {
+.table-body .hours {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -103,7 +103,7 @@ table {
 }
 
 /* 우측 시간 표시 */
-.times {
+.table-body .times {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -145,55 +145,16 @@ table {
     width: 100%;
 }
 
-/* 1, 11, 21, ... 번째 요소 */
-.subject:nth-child(10n + 1) {
-    background-color: #dcedff; /* 파란색 계열 */
-}
-
-/* 2, 12, 22, ... 번째 요소 */
-.subject:nth-child(10n + 2) {
-    background-color: #dfffe1; /* 녹색 계열 */
-}
-
-/* 3, 13, 23, ... 번째 요소 */
-.subject:nth-child(10n + 3) {
-    background-color: #fff4dc; /* 주황색 계열 */
-}
-
-/* 4, 14, 24, ... 번째 요소 */
-.subject:nth-child(10n + 4) {
-    background-color: #ffdde0; /* 붉은색 계열 */
-}
-
-/* 5, 15, 25, ... 번째 요소 */
-.subject:nth-child(10n + 5) {
-    background-color: #f0e1ff; /* 보라색 계열 */
-}
-
-/* 6, 16, 26, ... 번째 요소 */
-.subject:nth-child(10n + 6) {
-    background-color: #d9f7f0; /* 민트/청록 계열 */
-}
-
-/* 7, 17, 27, ... 번째 요소 */
-.subject:nth-child(10n + 7) {
-    background-color: #ffffd4; /* 연노랑 계열 */
-}
-
-/* 8, 18, 28, ... 번째 요소 */
-.subject:nth-child(10n + 8) {
-    background-color: #ffe5d9; /* 복숭아/살구 계열 */
-}
-
-/* 9, 19, 29, ... 번째 요소 */
-.subject:nth-child(10n + 9) {
-    background-color: #e0e8f0; /* 회하늘색 계열 */
-}
-
-/* 10, 20, 30, ... 번째 요소 */
-.subject:nth-child(10n + 10) {
-    background-color: #fde2f3; /* 연분홍/라일락 계열 */
-}
+.subject.color-1 { background-color: #dcedff; } /* 파란색 계열 */
+.subject.color-2 { background-color: #dfffe1; } /* 녹색 계열 */
+.subject.color-3 { background-color: #fff4dc; } /* 주황색 계열 */
+.subject.color-4 { background-color: #ffdde0; } /* 붉은색 계열 */
+.subject.color-5 { background-color: #f0e1ff; } /* 보라색 계열 */
+.subject.color-6 { background-color: #d9f7f0; } /* 민트/청록 계열 */
+.subject.color-7 { background-color: #ffffd4; } /* 연노랑 계열 */
+.subject.color-8 { background-color: #ffe5d9; } /* 복숭아/살구 계열 */
+.subject.color-9 { background-color: #e0e8f0; } /* 회하늘색 계열 */
+.subject.color-10 { background-color: #fde2f3; } /* 연분홍/라일락 계열 */
 
 .subject h3 {
     font-size: 13px;

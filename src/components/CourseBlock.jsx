@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons"; 
 
 // 과목 블록 컴포넌트 
-function CourseBlock({ courseInfo, style, onUpdate, onDelete }) {
+function CourseBlock({ courseInfo, style, onUpdate, onDelete, className }) {
   const { id, courseName, professorName, location } = courseInfo;
 
   return (
-    <div className="subject" style={style}>
+    <div  className={`subject ${className}`} style={style}>
         <div className="status">
             {/* 수정 버튼 */}
             <button type="button" title="수정" className="update" onClick={() => onUpdate(id)}>
