@@ -120,21 +120,24 @@ function CourseReview() {
         <div className="course-review-container">
             <div className="side-bar">
                 <h3>{course.courseName}</h3>
-                <button 
-                    className={`overview ${activeTab === 'overview' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('overview')}
-                >
-                    <span className="icon"><FontAwesomeIcon icon={faCircleQuestion} size="sm" /></span>
-                    <span>개요</span>
-                </button>
-                {/* [수정] 강의평 버튼 */}
-                <button 
-                    className={`review ${activeTab === 'review' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('review')}
-                >
-                    <span className="icon"><FontAwesomeIcon icon={faStar} size="sm" /></span>
-                    <span>강의평</span>
-                </button>
+                <div className="buttons">
+                    <button 
+                        className={`overview ${activeTab === 'overview' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('overview')}
+                    >
+                        <span className="icon"><FontAwesomeIcon icon={faCircleQuestion} size="lg" /></span>
+                        <span>개요</span>
+                    </button>
+                    {/* [수정] 강의평 버튼 */}
+                    <button 
+                        className={`review ${activeTab === 'review' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('review')}
+                    >
+                        <span className="icon"><FontAwesomeIcon icon={faStar} size="lg" /></span>
+                        <span>강의평</span>
+                    </button>
+                </div>
+                
             </div>
 
             <div className="course-info">

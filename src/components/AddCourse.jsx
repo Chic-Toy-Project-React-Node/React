@@ -92,7 +92,7 @@ function AddCourse({ onClose, onSave, initialData }) {
     }
 
     return (
-        <div className="add-container">
+        <div className="add-course-container">
             {/* 수정이면 '수업 정보 변경' */}
             <h1>{initialData ? '수업 정보 변경' : '새 수업 추가'}</h1>
 

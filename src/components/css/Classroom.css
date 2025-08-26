@@ -9,15 +9,15 @@
     padding-top: 10px;
 }
 
-.side-bar {
+.classroom-container .side-bar {
     width: 300px;
 }
 
-.search-box {
+.classroom-container .search-box, .search-page-container .search-box {
     position: relative;
 }
 
-.search-box input {
+.classroom-container .search-box input, .search-page-container .search-box input {
     width: 100%;
     height: 48px;
     border-radius: 10px;
@@ -48,7 +48,7 @@
     cursor: pointer;
 }
 
-.point-box {
+.classroom-container .point-box {
     display: flex;
     justify-content: space-between;
     padding: 0 15px;
@@ -57,6 +57,7 @@
     height: 48px;
     border: 0.5px solid #dddddd;
     border-radius: 10px;
+    margin-top: 10px;
 }
 
 .point-box span:first-child {
@@ -70,11 +71,11 @@
     color: #f91F15;
 }
 
-.reviews {
+.classroom-container .reviews {
     width: 450px;
 }
 
-.review-card {
+.classroom-container .review-card {
     width: 100%;
     padding: 10px;
     border-bottom: 0.5px solid #dddddd;
@@ -115,4 +116,103 @@
     text-overflow: ellipsis;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+}
+
+/* 검색 결과 뷰 */
+.search-page-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1900px; /* 최대 너비를 1900px로 제한 */
+    margin: 10px auto; /* 페이지 중앙에 배치 */
+    padding-top: 10px;
+}
+
+.search-page-container > .search-page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.search-page-container > .search-page-header > .search-box {
+    width: 460px;
+}
+
+.search-page-container > .search-page-header > .search-type-selector {
+    margin-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    font-size: 14px;
+    color: #a6a6a6;
+}
+
+.search-page-container > .search-page-header > .search-type-selector label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.search-page-container > .search-page-header > .search-type-selector input {
+    cursor: pointer;
+}
+
+/* 수정된 최종 코드 */
+.search-page-container > .search-page-header > .search-type-selector label:has(input[type="radio"]:checked) {
+    font-weight: bold;
+    color: #f91F15;
+}
+
+.search-type-selector input[type="radio"] {
+    /* 이 한 줄로 체크되었을 때의 색상이 변경됩니다! */
+    accent-color: #f91F15;
+}
+
+.course-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 460px;
+    gap: 16px;
+    /* flex-wrap: wrap; */
+
+    /* 1. 스크롤이 발생할 수 있도록 최대 높이 지정 (값은 원하는대로 조절) */
+    height: calc(100vh - (220px));
+    /* 2. 지정한 높이를 초과하면 세로 스크롤바 생성 */
+    overflow-y: auto;
+}
+
+.course-list .no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* 수평 중앙 정렬 */
+    justify-content: center;   /* 수직 중앙 정렬 추가 */
+    gap: 20px;
+    width: 100%; 
+}
+
+.course-list .no-results > p:last-child {
+    font-size: 18px;
+    color: #a6a6a6;
+    font-weight: bold;
+}
+
+.course-list > .course-card {
+    margin: 5px 15px;
+    cursor: pointer;
+}
+
+.course-list .course-card > .course-name {
+    font-size: 16px;
+}
+
+.course-list .course-card > .prof-name {
+    font-size: 14px;
+    color: #737373;
 }

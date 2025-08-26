@@ -18,7 +18,7 @@
 }
   
 /* 사이드바 전체 컨테이너 */
-.side-bar {
+.schedule-container .side-bar {
     width: 325px;
     display: flex;
     flex-shrink: 0; /* 화면이 줄어들 때 사이드바 너비가 줄어들지 않도록 방지 */
@@ -27,18 +27,18 @@
 }
   
 /* 카드 스타일 (공통) */
-.card {
+.schedule-container .side-bar > .card {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     width: 100%;
 }
 
-.season-selector {
+.schedule-container .season-selector {
     position: relative;
 }
   
 /* 학기 선택 드롭다운 */
-.season-selector select {
+.schedule-container .season-selector select {
     width: 100%;
     height: 40px;
     padding: 10px 12px;
@@ -120,18 +120,28 @@
 }
   
 /* 시간표 목록 */
-.schedule-list {
+.schedule-container .schedule-list {
     border: 0.5px solid #e0e0e0;
+    padding: 0;
 }
 
 .schedule-list span {
-    padding: 16px;
+    padding: 20px;
 }
 
 .schedule-list .list-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.schedule-list .list-item.active {
+    background-color: #f8f8f8;
+}
+
+.schedule-list .list-item.active .schedule-name {
+    font-weight: bold;
+    color: #f91f15;
 }
 
 .schedule-list .list-item:hover {
@@ -151,17 +161,17 @@
 }
 
 /* 시간표 생성 버튼 */
-.schedule-actions {
-    margin-top: -12px;
+.side-bar .schedule-actions  {
+    margin-top: -13px;
     width: 100%;
     border: 0.5px solid #e0e0e0;
     display: flex;
     flex-direction: column;
     border-top: none;
-    
+    padding: 0px;
 }
 
-.action-btn {
+.schedule-actions .action-btn {
     background: none;
     border: none;
     color: #f91f15; 
@@ -172,23 +182,23 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    
     width: 100%;
+    padding: 5px;
 }
 
-.action-btn:hover {
+.schedule-actions .action-btn:hover {
     background-color: #f8f8f8;
 }
 
-.action-btn span:first-child {
+.schedule-actions .action-btn span:first-child {
     margin-left: 15px;
 }
 
-.action-btn span:last-child {
+.schedule-actions .action-btn span:last-child {
     padding: 16px 0px;
 }
   
-.action-btn .icon {
+.schedule-actions .action-btn .icon {
     font-size: 18px;
 }
 
@@ -226,7 +236,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.setting-container {
+.schedule-setting-container {
     width: 400px;
     padding: 25px;
     background-color: #fff;
@@ -237,18 +247,18 @@
     transform: translate(-50%, -50%);
 }
 
-.setting-container div {
+.schedule-setting-container div {
     margin-bottom: 15px;
 }
 
-.setting-container .setting-name {
+.schedule-setting-container .setting-name {
     width: 100%;
     color: #292929;
     margin-bottom: 15px;
     font-weight: normal;
 }
 
-.setting-container label.name, .default-label, h3.visibility {
+.schedule-setting-container label.name, .default-label, h3.visibility {
     display: block;
     width: 100%;
     margin-bottom: 5px;
@@ -257,7 +267,7 @@
     font-weight: bold;
 }
 
-.setting-container input#schedule-name {
+.schedule-setting-container input#schedule-name {
     width: 100%;
     height: 30px;
     padding: 0px 5px;
@@ -268,7 +278,7 @@
     color: #292929;
 }
 
-.setting-container .radio-option {
+.schedule-setting-container .radio-option {
     margin: 0px 10px 0px 0px;
     font-size: 13px;
     font-weight: normal;
@@ -290,12 +300,12 @@
     color: #292929;
 }
 
-.setting-container .buttons {
+.schedule-setting-container .buttons {
     width: 100%;
     height: 30px;
 }
 
-.setting-container .delete-btn {
+.schedule-setting-container .delete-btn {
     width: 50px;
     border-radius: 20px;
     position: absolute;
@@ -311,7 +321,7 @@
     cursor: pointer;
 }
 
-.setting-container .setiing-save-btn {
+.schedule-setting-container .setiing-save-btn {
     width: 75px;
     border-radius: 20px;
     position: absolute;
@@ -324,5 +334,14 @@
     color: #fff;
     font-weight: bold;
     font-size: 12px;
+    cursor: pointer;
+}
+
+.schedule-setting-container .close-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    color: #909090;
     cursor: pointer;
 }

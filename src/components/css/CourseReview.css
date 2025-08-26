@@ -10,17 +10,30 @@
 }
 
 
-.side-bar {
+.course-review-container > .side-bar {
     width: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.side-bar > h3 {
+.course-review-container > .side-bar h3 {
     font-size: 22px;
     font-weight: bold;
     color: #292929;
+    margin-left: 10px;
+}
+.course-review-container > .side-bar > .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
 }
 
-.side-bar > button {
+.course-review-container > .side-bar > .buttons button {
     width: 100%;
     height: 40px;
     border-radius: 12px;
@@ -32,15 +45,14 @@
     text-align: left;
     background: none;
     cursor: pointer;
-    margin: -2px;
 }
 
-.side-bar > button.active {
+.course-review-container > .side-bar > .buttons button.active {
     background-color: #fff3f3;
     font-weight: bold;
 }
 
-.side-bar button span {
+.course-review-container > .side-bar button span {
     margin-right: 6px;
 }
 
@@ -103,8 +115,6 @@
     font-size: 22px;
     color: #292929;
 }
-
-/* 나중에 별 아이콘 추가 */
 
 
 .overview-block .rating-box .review-count {

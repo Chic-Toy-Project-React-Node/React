@@ -1,5 +1,7 @@
 import './css/Schedule.css';
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons"; 
 
 function ScheduleSetting({ onClose, onSave, scheduleToEdit, onDelete, totalSchedules }) {
     // 시간표 설정 정보 상태 관리
@@ -57,8 +59,11 @@ function ScheduleSetting({ onClose, onSave, scheduleToEdit, onDelete, totalSched
 
     return (
         <div className="modalwrap">
-            <div className="setting-container">
+            <div className="schedule-setting-container">
                 <h3 className="setting-name">시간표 설정</h3>
+                <span className="close-icon" onClick={onClose}>
+                    <FontAwesomeIcon icon={faXmark} />
+                </span>
                 <div className="name">
                     <label htmlFor="schedule-name" className="name">이름</label>
                     <input 

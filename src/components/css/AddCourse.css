@@ -2,7 +2,7 @@
     font-family: 'Pretendard', sans-serif;
 }
 
-.add-container {
+.add-course-container {
     width: 545px;
     min-height: 305px;
     height: auto;
@@ -14,14 +14,18 @@
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
 }
 
-.add-container h1 {
+.add-course-container h1 {
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-.course-info .label {
+.course-info > div {
+    display: flex;
+}
+
+.add-course-container .course-info .label {
     display: inline-block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     width: 80px;
     height: 30px;
     font-size: 12px;
@@ -29,7 +33,7 @@
     font-weight: bold;
 }
 
-.course-info input {
+.add-course-container .course-info input {
     width: 412px;
     height: 32px;
     padding: 0px 5px;
@@ -41,29 +45,30 @@
 #time-place {
     display: inline-block;
     width: 412px;
+    margin-top: -5px;
     vertical-align: top;
 }
 
 #time-place li {
-    width: 412px;
+    width: 402px;
     height: 74px;
     border: 0.5px solid #a6a6a6;
     padding: 5px;
     margin-top: 5px;
 }
 
-input.place {
+.add-course-container input.place {
     width: 92px;
     height: 32px;
     padding: 0px 5px;
 }
 
-.day-selector {
+.add-course-container .day-selector {
     display: flex;
     gap: 2px;
 }
 
-.day-button {
+.add-course-container .day-button {
     width: 25px;
     height: 25px;
     background-color: #f2f2f2;
@@ -73,7 +78,7 @@ input.place {
     cursor: pointer;
 }
 
-.day-button.selected {
+.add-course-container .day-button.selected {
     background-color: #f91f15;
     color: #fff;
 }
@@ -121,7 +126,13 @@ input.place {
     margin-right: 5px;
 }
 
-.save-btn {
+.add-course-container .course-info .actions {
+    display: flex;
+    justify-content: flex-end; 
+    width: 100%; 
+}
+
+.add-course-container .course-info .actions .save-btn {
     float: right;
     height: 30px;
     background-color: #f91f15;
@@ -136,7 +147,7 @@ input.place {
     margin-top: 10px;
 }
 
-.cancel-btn {
+.add-course-container .course-info .actions .cancel-btn {
     position: absolute;
     right: 10px;
     top: -20px;

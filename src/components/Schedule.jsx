@@ -519,7 +519,7 @@ function Schedule() {
                 )}
 
                 {/* 시간표 목록 및 생성 */}
-                <div className="card schedule-list">
+                <div className="schedule-list card">
                     {schedules.map(schedule => (
                         <div 
                             key={schedule.id} 
