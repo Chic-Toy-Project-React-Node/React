@@ -1,5 +1,5 @@
 /* src/components/css/Sidebar.css */
-.sidebar {
+.sideBar_left {
   width: 220px;
   padding: 16px;
   background-color: #fff;
@@ -9,12 +9,12 @@
 
 }
 
-.profile {
+.sideBar_left .profile {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.avatar {
+.sideBar_left .avatar {
   width: 60px;
   height: 60px;
   margin: 0 auto 10px;
@@ -22,24 +22,24 @@
   background-color: #eee;
 }
 
-.info .nickname {
+.sideBar_left .info .nickname {
   font-weight: bold;
 }
 
-.info .userid {
+.sideBar_left .info .userid {
   font-size: 12px;
   color: #666;
   margin-top: 4px;
 }
 
-.buttons {
+.sideBar_left .buttons {
   margin-top: 10px;
   display: flex;
   gap : 8px;
   justify-content: center;
 }
 
-.btn {
+.sideBar_left .btn {
   margin-bottom: 6px;
   padding: 6px;
   font-size: 12px;
@@ -48,28 +48,28 @@
   cursor: pointer;
 }
 
-.activity ul {
+.sideBar_left .activity ul {
   list-style: none;
   padding: 0;
   margin: 0 0 20px;
 }
 
-.activity li {
+.sideBar_left .activity li {
   margin-bottom: 8px;
 }
 
-.activity a {
+.sideBar_left .activity a {
   text-decoration: none;
   font-size: 14px;
   color: #333;
 }
 
-.banner img {
+.sideBar_left .banner img {
   width: 100%;
   border-radius: 4px;
 }
 
-.id_list {
+.sideBar_left .id_list {
   width: 100%;
   margin-bottom: 6px;
   padding: 6px 0;

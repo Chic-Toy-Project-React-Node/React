@@ -3,7 +3,7 @@ import './css/Sidebar.css';
 
 function Sidebar() {
   return (
-    <aside className="sidebar">
+    <aside className="sideBar_left">
       {/* 프로필 영역 */}
       <div className="profile">
         <div className="avatar"></div> {/* 프로필 이미지 자리 */}

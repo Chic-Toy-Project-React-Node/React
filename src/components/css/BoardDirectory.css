@@ -1,5 +1,5 @@
 /* dir-wrap을 화면 중앙에 배치 */
-.main {
+.Top .main {
   display: flex;
   justify-content: center;  /* 가로 가운데 */
   gap: 40px;                /* 열 간격 */
@@ -10,7 +10,7 @@
 }
 
 /* line은 세로로 배치 */
-.main .line {
+.Top .main .line {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -19,12 +19,12 @@
 }
 
 /* 링크 기본 스타일 */
-.main .line a {
+.Top .main .line a {
   text-decoration: none;
   color: black;
-  font-weight: : 15;
+  font-weight: 15;
 }
 
-.main .line a:hover {
+.Top .main .line a:hover {
   color: #f91f15;
 }

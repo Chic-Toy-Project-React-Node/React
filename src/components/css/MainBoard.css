@@ -4,26 +4,26 @@
   gap: 16px;
 }
 
-.card {
+.mainCard .card {
   border: 1px solid #ddd;
   padding: 12px;
   background-color: #fff;
   border : 1px solid;
 }
 
-.mainName {
+.mainCard .mainName {
   margin-bottom: 8px;
   font-size: 16px;
   font-weight: bold;
   color: #c00;
 }
 
-.card a {
+.mainCard .card a {
     color : black;
     text-decoration : none;
 }
 
-.mainName a {
+.mainCard .mainName a {
     color : red;
 }
 
