@@ -31,6 +31,7 @@
     align-items: center;
     gap: 2px;
     width: 100%;
+    margin-top: 8px;
 }
 
 .course-review-container > .side-bar > .buttons button {
@@ -290,6 +291,7 @@
 .review-content-block > .all-reviews-list .review-card > .rating {
     font-size: 10px;
     margin-bottom: -5px;
+    /* padding-bottom: 3px; */
 }
 
 .review-content-block > .all-reviews-list .review-card > .semester {
