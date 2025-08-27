@@ -45,6 +45,10 @@
     text-align: left;
     background: none;
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .course-review-container > .side-bar > .buttons button.active {
@@ -52,7 +56,7 @@
     font-weight: bold;
 }
 
-.course-review-container > .side-bar button span {
+.course-review-container > .side-bar button .course-review-icon {
     margin-right: 6px;
 }
 
@@ -123,18 +127,20 @@
 }
 
 .overview-block .review-box {
-    padding-top: 5px;
+    padding-top: 25px;
 }
 
 .overview-block .review-box .review-card {
     border: none;
     cursor: default;
+    padding-bottom: 25px;
 }
 
 
 /* 나중에 별점 아이콘 수정 */
 .overview-block .review-box .rating {
     font-size: 8px;
+    margin-bottom: -10px;
 }
 
 
@@ -156,7 +162,6 @@
 
 
 .overview-block .review-box .more-review {
-    margin-top: 10px;
     width: 100%;
     padding: 10px;
     border: none;
@@ -275,18 +280,22 @@
 
 .review-content-block > .all-reviews-list .review-card {
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 15px 0;
 }
 
 .review-content-block > .all-reviews-list .review-card > .rating {
     font-size: 10px;
-    padding-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: -5px;
 }
 
 .review-content-block > .all-reviews-list .review-card > .semester {
     color: #a6a6a6;
     font-size: 12px;
-    padding-bottom: 5px;
+    padding: 0 0 5px 0;
 }
 
 .review-content-block > .all-reviews-list .review-card > .content {
