@@ -216,7 +216,7 @@
     background-color: #f91f15;
     color: #fff;
     font-weight: bold;
-    z-index: 9997;
+    z-index: 1;
 }
 
 .add-course:hover {

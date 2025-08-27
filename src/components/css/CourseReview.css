@@ -141,7 +141,7 @@
 /* 나중에 별점 아이콘 수정 */
 .overview-block .review-box .rating {
     font-size: 8px;
-    margin-bottom: -10px;
+    /* margin-bottom: -10px; */
 }
 
 
@@ -290,8 +290,8 @@
 
 .review-content-block > .all-reviews-list .review-card > .rating {
     font-size: 10px;
-    margin-bottom: -5px;
-    /* padding-bottom: 3px; */
+    /* margin-bottom: -5px; */
+    padding-bottom: 5px;
 }
 
 .review-content-block > .all-reviews-list .review-card > .semester {
