@@ -1,30 +1,71 @@
-/* dir-wrap을 화면 중앙에 배치 */
-.Top .main {
-  display: flex;
-  justify-content: center;  /* 가로 가운데 */
-  gap: 40px;                /* 열 간격 */
-  margin: 0 auto;           /* 브라우저 기본 여백에서 중앙 배치 */
-  padding: 20px 0;
-  font-size : 14px;
-  background-color: #f8f8f8;
+/* 기본 여백/박스모델 */
+html, body { margin: 0; }
+* { box-sizing: border-box; }
+
+/* [좌 1fr] | [사이드바 260] | [메인보드 720~880] | [오른쪽 260] | [우 1fr] */
+.Top{
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 260px minmax(720px, 880px) 260px minmax(0,1fr);
+  column-gap: 24px;
+  row-gap: 24px;
+  align-items: start;
+  width: 100%;
 }
 
-/* line은 세로로 배치 */
-.Top .main .line {
+/* 상단 카테고리 띠는 전폭(양쪽 1fr 포함) */
+.Top > section.main{
+  grid-column: 1 / -1;
+  background: #f8f8f8;
+  padding: 16px 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* 띠 내부 배치 */
+.Top .main{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 14px;
+}
+.Top .main .line{
   display: flex;
   flex-direction: column;
   gap: 6px;
-  height : 200;
-  width : 130;
+  width: 130px;
 }
-
-/* 링크 기본 스타일 */
-.Top .main .line a {
+.Top .main .line a{
   text-decoration: none;
-  color: black;
-  font-weight: 15;
+  color: #000;
+  font-weight: 500;
+}
+.Top .main .line a:hover{ color:#f91f15; }
+
+/* 가운데 3칸에 콘텐츠 정확히 고정 (래퍼 없을 때 nth-child 사용) */
+.Top > :nth-child(2){          /* Sidebar */
+  grid-column: 2;
+  overflow: hidden;            /* 튀어나옴 방지 */
+  max-width: 100%;
+}
+.Top > :nth-child(3){          /* MainBoard */
+  grid-column: 3;
+  min-width: 0;                /* 말줄임/오버플로 방지 */
 }
 
-.Top .main .line a:hover {
-  color: #f91f15;
+/* (오른쪽 사이드바 생기면 자동으로 4번 자식이 열 4에 들어갑니다) */
+
+/* 반응형 */
+@media (max-width: 1200px){
+  .Top{
+    grid-template-columns: minmax(0,1fr) 240px minmax(680px, 820px) 240px minmax(0,1fr);
+    column-gap: 22px;
+  }
 }
+@media (max-width: 980px){
+  .Top{
+    grid-template-columns: 1fr;   /* 모바일: 세로 스택 */
+  }
+  .Top > section.main{ grid-column: 1; }
+}
+
+
