@@ -9,14 +9,14 @@ import Schedule from './components/Schedule.jsx';
 import BoardDirectory from './components/BoardDirectory.jsx';
 import Classroom from './components/Classroom.jsx';
 import CourseReview from './components/CourseReview.jsx';
-import Calculator from './components/Calculator';
+
 
 
 function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <Header />
+               <Header />
 
                 {/* 다른 페이지 컨텐츠 */}
                 <main>
@@ -34,7 +34,7 @@ function App() {
                         <Route path="/classroom/review" element={<CourseReview />} />
 
                         {/* 학점계산기 */}
-                        <Route path="/calculator" element={<Calculator />} />
+                        <Route path="" element={<></>} />
                     </Routes>
                 </main>
             </div>

@@ -5,7 +5,7 @@ import MainBoard from './MainBoard.jsx'
 
 function BoardDirectory() {
   return (
-    <div classname ="Top">
+    <div className ="Top">
     <section className="main">
       {/* 1줄: 자유/비밀/새내기 */}
       <div className="line">

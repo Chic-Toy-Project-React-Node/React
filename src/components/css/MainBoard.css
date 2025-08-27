@@ -8,6 +8,7 @@
   border: 1px solid #ddd;
   padding: 12px;
   background-color: #fff;
+  border : 1px solid;
 }
 
 .mainName {
@@ -19,9 +20,10 @@
 
 .card a {
     color : black;
+    text-decoration : none;
 }
 
 .mainName a {
     color : red;
-    text-decoration : none;
 }
+

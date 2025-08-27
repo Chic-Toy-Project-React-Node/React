@@ -6,10 +6,10 @@ function MainBoard() {
 
             <div className="card">
                 <h3 className="mainName"><a href="/">자유 게시판</a></h3>
-                <p><a href="/">제목 1</a></p>
-                <p><a href="/">제목 1</a></p>
-                <p><a href="/">제목 1</a></p>
-                <p><a href="/">제목 1</a></p>
+                <p className="cardTitle"><a href="/">제목 1</a></p>
+                <p className="cardTitle"><a href="/">제목 1</a></p>
+                <p className="cardTitle"><a href="/">제목 1</a></p>
+                <p className="cardTitle"><a href="/">제목 1</a></p>
              </div>
 
             <div className="card">
