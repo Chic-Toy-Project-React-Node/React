@@ -1,144 +1,302 @@
-/* ===== Tokens ===== */
+/* =========================
+   Tokens
+========================= */
 :root{
   --container-max: 1120px;
   --radius: 12px;
   --c-bg: #fff;
   --c-page: #fafafa;
   --c-border: #e5e7eb;
-  --c-muted: #666;             /* DevTools color */
+  --c-muted: #666;
   --c-text: #111;
-  --c-primary: #ef4444;       
+  --c-primary: #ef4444;
   --shadow-1: 0 6px 20px rgba(0,0,0,.05);
+
+  /* charts */
+  --series-overall: rgb(249,31,21);
+  --series-major:   rgb(166,166,166);
 }
 
-/* ===== Page ===== */
+/* =========================
+   Page
+========================= */
 .calculator{
-  margin: 80px 92px 0;         /* DevTools: margin-top 80, left/right 92 */
-  padding: 24px 0;             /* DevTools: padding-top/bottom 24 */
-  letter-spacing: -0.5px;      /* DevTools */
-  color: var(--c-text);
-  background: var(--c-page);
-}
-.calculator .container{
-  width: min(100%, var(--container-max));
   margin: 0 auto;
+  padding: 24px 0;
+  width: 796px;
+  letter-spacing: -0.5px;
+  color: var(--c-text);
 }
-.calculator .card{
-  background: var(--c-bg);
+
+/* 카드 래퍼 (overview + charts 묶음) */
+.calculator .chart{
+  padding: 16px 24px;
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
+  background: #fff;
   box-shadow: var(--shadow-1);
 }
 
-/* ===== Title ===== */
-.calculator .title h1{
-  margin: 0 0 16px;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-/* ===== Overview (전체/전공/취득) ===== */
-.calculator .overview{
+/* =========================
+   Overview (전체/전공/취득)
+   - 왼쪽 정렬, 간격 제어
+========================= */
+#container.calculator .chart > .overview{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 16px;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 24px;            /* 필요하면 16~48px로 조절 */
+  justify-content: start;
+  justify-items: start;
+  align-items: start;
+  padding: 0;
 }
-.calculator .overview .column h4{
-  margin: 0 0 6px;
-  color: var(--c-muted);
+#container.calculator .chart > .overview .column{
+  min-width: 0;
+  white-space: nowrap;
+}
+#container.calculator .chart > .overview .column h4{
+  margin: 0 0 4px;
+  color: #111;
   font-weight: 600;
 }
-.calculator .overview .value{
+#container.calculator .chart > .overview .value,
+#container.calculator .chart > .overview .total{
+  display: inline-block;
   margin: 0;
-  font-size: 32px;
+  line-height: 1;
+  vertical-align: baseline;
+}
+#container.calculator .chart > .overview .value{
+  font-size: 28px;             /* 원하면 32px */
   font-weight: 800;
   color: var(--c-primary);
 }
-.calculator .overview .total{
-  margin: 2px 0 0;
+#container.calculator .chart > .overview .total{
+  margin-left: 2px;
   color: var(--c-muted);
+  white-space: nowrap;
 }
 
-/* ===== Chart & Ratio placeholders ===== */
-.calculator .semester{
-  margin-top: 12px;
-  padding: 12px 16px;
+/* 취득 학점: 설정(기어) 아이콘 */
+#container.calculator .chart > .overview .column.acquisition .total{
+  position: relative;
+  padding-right: 22px;         /* 아이콘 공간 */
 }
+#container.calculator .chart > .overview .column.acquisition .total .gearBtn{
+  position: absolute; top: 50%; right: 0; transform: translateY(-50%);
+  width: 16px; height: 16px; padding: 0;
+  border: none; background: transparent; cursor: pointer;
+}
+#container.calculator .chart > .overview .column.acquisition .total .gearBtn svg{
+  display: block;
+  width: 100%; height: 100%;
+  color: #a3a3a3;
+}
+
+/* =========================
+   Charts & Legend & Ratio
+========================= */
+.calculator .semester{ margin-top: 12px; padding: 0; }
 .calculator .series{
-  display: grid;
-  grid-template-columns: 2fr 1.2fr;
-  gap: 12px;
+  display:grid;
+  grid-template-columns: 1.8fr 1fr;  /* 왼쪽 그래프, 오른쪽 분포 */
+  gap:24px;
+  align-items:start;
 }
-.calculator .plot{
-  height: 200px;               /* placeholder 높이 */
-  border: 1px dashed var(--c-border);
-  border-radius: var(--radius);
-  background: #fff;
-}
-.calculator .ratioplot{
-  list-style: none;
-  margin: 0;
-  padding: 12px;
-  border: 1px dashed var(--c-border);
-  border-radius: var(--radius);
-  background: #fff;
+.calculator .chartArea{ min-width:0; }
+.calculator .ratioArea{ min-width:0; }
+
+
+/* Recharts container 높이 */
+.calculator .plot.chartBox{
+  height: 220px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
-/* ===== Tabs ===== */
+
+/* ● 전체 · 전공 범례  */
+.calculator .legend{
+  display:flex; gap:20px; align-items:center; margin:0 0 6px 0;
+}
+.calculator .legendItem{
+  display:inline-flex; align-items:center; gap:6px; font-weight:700;
+}
+.calculator .legendItem--overall{ color: rgb(249,31,21); } /* 빨강 텍스트 + 점 */
+.calculator .legendItem--major{  color: #a6a6a6; }        /* 회색 텍스트 + 점 */
+.calculator .legend .dot{
+  width:10px; height:10px; border-radius:50%; background: currentColor;
+  display:inline-block;
+}
+.calculator .ratioplot{ list-style:none; margin:0; padding:0; }
+.calculator .ratioplot li.flex{
+  display:grid;
+  grid-template-columns: 36px 1fr auto; /* 학점 라벨 / 막대 / 퍼센트 */
+  align-items:center;
+  gap:12px;
+  padding:8px 0;
+}
+.calculator .ratioplot .grade{ text-align:right; color:#111; font-weight:600; }
+.calculator .ratiowrapper{ position:relative; height:14px; display:flex; align-items:center; }
+.calculator .ratiobar{ height:4px; border-radius:999px; }
+.calculator .ratiovalue{ font-size:12px; font-weight:700; white-space:nowrap; }
+
+
+/* =========================
+   Tabs (가로 스크롤 + 스크롤바 숨김)
+========================= */
 .calculator .menu{
   margin-top: 12px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* old Edge */
 }
+.calculator .menu::-webkit-scrollbar{ width:0; height:0; }
 .calculator .menu ol{
-  display: flex; gap: 8px; padding: 8px 0; margin: 0; list-style: none;
-}
-.calculator .menu a{
-  display: inline-flex; align-items: center;
-  height: 36px; padding: 0 14px; border-radius: 999px;
-  border: 1px solid var(--c-border); background: #fff; color: var(--c-text);
-  white-space: nowrap; text-decoration: none; font-weight: 600;
-}
-.calculator .menu a.active{
-  border-color: var(--c-primary); background: var(--c-primary); color: #fff;
-}
-
-/* ===== Subjects table ===== */
-.calculator .subjects{
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 12px;
-}
-.calculator .subjects thead th{
-  text-align: left; color: var(--c-muted); font-weight: 600;
-  border-bottom: 1px solid #f1f5f9; padding: 10px 12px;
-}
-.calculator .subjects tbody td{
-  border-bottom: 1px solid #f6f7fb;
-  padding: 10px 12px;
-}
-.calculator .subjects tbody tr:hover{ background: #fafafa; }
-
-.calculator .subjects .name  { width: 100%; }
-.calculator .subjects .credit{ width: 90px; }
-.calculator .subjects .grade { width: 110px; }
-.calculator .subjects .major { width: 80px; text-align: center; }
-
-.calculator .input, .select{
-  width: 100%;
-  height: 36px;
+  display: flex;
+  gap: 8px;
+  padding: 6px 8px;
+  margin: 0;
+  list-style: none;
+  min-width: max-content;
   border: 1px solid var(--c-border);
-  border-radius: 10px;
-  padding: 0 10px;
+  border-radius: 12px;
   background: #fff;
 }
-.calculator .checkbox{
-  width: 18px; height: 18px;
+.calculator .menu li{ flex: 0 0 auto; }
+.calculator .menu a{
+  display: inline-flex; align-items: center;
+  height: 36px; padding: 0 14px;
+  border: none; background: transparent;
+  color: var(--c-muted); font-weight: 600;
+  white-space: nowrap; text-decoration: none;
 }
+.calculator .menu li.active a{
+  color:#111; font-weight:700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* =========================
+   Term title + sub
+========================= */
+.calculator .termTitle{
+  margin: 16px 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.calculator .termSub{ display:block; margin-top:4px; }
+.calculator .termStat{ margin:0 10px 0 0; font-size:14px; color:#111; }
+.calculator .termNum{ color: var(--c-primary); font-weight:700; }
+.calculator .termTitle .termStat{ margin-left:0; } /* 예전 규칙 무효화 */
+
+/* =========================
+   Subjects table
+========================= */
+#container.calculator .section table.subjects{
+  width:100%;
+  margin-top:24px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border:1px solid #e5e7eb;     /* 표 외곽선 */
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+}
+/* 헤더 */
+#container.calculator .section table.subjects thead th{
+  height:40px; padding:10px 12px;
+  background:#fff; color:#9ca3af; font-weight:600;
+  text-align:left;
+  border-bottom:1px solid #eef2f7; border-right:1px solid #eef2f7;
+  writing-mode: horizontal-tb !important; text-orientation: mixed;
+  white-space:nowrap; word-break:keep-all;
+}
+#container.calculator .section table.subjects thead th:last-child{ border-right:0; }
+#container.calculator .section table.subjects thead th.credit,
+#container.calculator .section table.subjects thead th.grade,
+#container.calculator .section table.subjects thead th.major{ text-align:center !important; }
+
+/* 바디 */
+#container.calculator .section table.subjects tbody td{
+  height:48px; padding:0 5px; vertical-align:middle;
+  background:#fff; color:#111;
+  border-bottom:1px solid #f3f4f6; border-right:1px solid #eef2f7;
+}
+#container.calculator .section table.subjects tbody td:last-child{ border-right:0; }
+#container.calculator .section table.subjects tbody tr:last-child td{ border-bottom:0; }
+
+/* 회색 행(과목명/학점) */
+#container.calculator .section table.subjects tbody td.nameCell,
+#container.calculator .section table.subjects tbody td.creditCell{ background:#fafafa; }
+
+/* 열 너비/정렬 */
+#container.calculator .section table.subjects .nameCell   { width:100%; }
+#container.calculator .section table.subjects .creditCell { width:70px;  min-width:70px; text-align:center; color:#6b7280; }
+#container.calculator .section table.subjects .gradeCell  { width:70px;  min-width:70px; text-align:center; position:relative; }
+#container.calculator .section table.subjects .majorCell  { width:70px;  min-width:70px; text-align:center; }
+
+/* 인풋/셀렉트(파란 외곽선 제거, 테두리 없음) */
+.calculator .subjects .input,
+.calculator .subjects .select{
+  width:100%; height:28px;
+  background:transparent;
+  border:none !important;
+  padding:0 10px;
+  font-size:15px; color:#111;
+}
+.calculator .subjects .input:focus,
+.calculator .subjects .select:focus,
+.calculator .subjects .input:focus-visible,
+.calculator .subjects .select:focus-visible{
+  outline:none !important; box-shadow:none !important;
+}
+.calculator .subjects .creditInput{ text-align:center; }
+
+/* 전공 체크박스 중앙 정렬 */
+#container.calculator .section table.subjects td.majorCell{ padding:0; }
+#container.calculator .section table.subjects td.majorCell .checkbox{
+  display:inline-block; width:16px; height:16px; margin:0 auto; vertical-align:middle;
+}
+
+/* 푸터(더 입력하기/초기화) */
+#container.calculator .section table.subjects tfoot td{
+  height:48px; background:#fff; padding:0 12px; border-top:1px solid #eef2f7;
+}
+.calculator .subjects a.new   { color:#ef4444; font-size:14px; font-weight:700; cursor:pointer; }
+.calculator .subjects a.reset { color:#9ca3af; font-size:14px; font-weight:600; cursor:pointer; }
+
+/* =========================
+   Buttons (공통)
+========================= */
 .calculator .actions{ display:flex; gap:8px; margin-top:10px; }
 .calculator .btn{
   display:inline-flex; align-items:center; justify-content:center;
-  height: 40px; padding: 0 14px; border-radius: 10px; font-weight: 700;
-  border: 1px solid var(--c-border); background: #fff; cursor: pointer;
+  height:40px; padding:0 14px; border-radius:10px; font-weight:700;
+  border:1px solid var(--c-border); background:#fff; cursor:pointer;
 }
-.calculator .btn--primary{ background: var(--c-primary); color:#fff; border-color: var(--c-primary); }
+.calculator .btn--primary{ background:var(--c-primary); color:#fff; border-color:var(--c-primary); }
+
+/* =========================
+   Modal (졸업 학점)
+========================= */
+.calculator .modalBackdrop{
+  position: fixed; inset: 0; background: rgba(0,0,0,.35);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 50;
+}
+.calculator .modal{
+  width: 360px; background: #fff;
+  border: 1px solid var(--c-border); border-radius: 12px;
+  padding: 18px; box-shadow: var(--shadow-1);
+}
+.calculator .modal h3{ margin: 0 0 12px; font-size: 18px; font-weight: 700; }
+.calculator .modal .modalLabel{ display:block; font-size:14px; color:#111; margin-bottom:8px; }
+.calculator .modal .text{
+  width: 100%; height: 40px; border: 1px solid var(--c-border);
+  border-radius: 10px; padding: 0 12px; font-size: 16px;
+}
+.calculator .modal .actions{ display:flex; gap:8px; justify-content:flex-end; margin-top: 14px; }
