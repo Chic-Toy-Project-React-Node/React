@@ -1,7 +1,7 @@
 // src/components/BoardDirectory.jsx
 import './css/BoardDirectory.css';
-import Sidebar from "./Board_Sidebar"
-import MainBoard from './MainBoard.jsx'
+
+import { Link } from "react-router-dom"; //
 
 function BoardDirectory() {
   return (
@@ -9,7 +9,7 @@ function BoardDirectory() {
     <section className="main">
       {/* 1줄: 자유/비밀/새내기 */}
       <div className="line">
-        <p><a href="/">자유 게시판</a></p>
+        <p><Link to="/board/free">자유 게시판</Link></p>
         <p><a href="/">비밀 게시판</a></p>
         <p><a href="/">새내기 게시판</a></p>
       </div>
@@ -31,8 +31,7 @@ function BoardDirectory() {
         <p><a href="/">구름사진 게시판</a></p>
       </div>
     </section>
-    <Sidebar></Sidebar>
-    <MainBoard></MainBoard>
+
     </div>
   );
 }

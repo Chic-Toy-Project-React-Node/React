@@ -10,7 +10,8 @@ import BoardDirectory from './components/BoardDirectory.jsx';
 import Classroom from './components/Classroom.jsx';
 import CourseReview from './components/CourseReview.jsx';
 import Calculator from './components/Calculator.jsx';
-
+import FreeBoard from './components/FreeBoard.jsx';
+import MainPage from './components/MainPage.jsx';
 
 
 function App() {
@@ -23,7 +24,10 @@ function App() {
                 <main>
                     <Routes>
                         {/* 게시판 (기본 경로) */}
-                        <Route path="/" element={<BoardDirectory />} /> 
+                        <Route path="/" element={<MainPage />} /> 
+
+                         {/* 자유게시판 */}
+                        <Route path="/board/free" element={<FreeBoard />} />
 
                         {/* 시간표 */}
                         <Route path="/schedule" element={<Schedule />} />
@@ -39,7 +43,6 @@ function App() {
                     </Routes>
                 </main>
             </div>
-            
         </BrowserRouter>
     );
 }

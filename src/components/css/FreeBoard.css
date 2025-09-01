@@ -1,0 +1,55 @@
+.freeBoard .board {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.freeBoard .write-box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.freeBoard .write-placeholder {
+  color: #888;
+}
+
+.freeBoard .write-form input,
+.freeBoard .write-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.freeBoard .post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.freeBoard .post-item {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.freeBoard .time {
+  font-size: 12px;
+  color: #999;
+}
+
+.freeBoard .fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  cursor: pointer;
+}
