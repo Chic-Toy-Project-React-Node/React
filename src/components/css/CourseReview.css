@@ -9,7 +9,6 @@
     padding-top: 10px;
 }
 
-
 .course-review-container > .side-bar {
     width: 270px;
     display: flex;
@@ -108,7 +107,6 @@
 
 .overview-block .rating-box {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     gap: 10px;
     border-bottom: 0.5px solid #ddd;
@@ -137,13 +135,9 @@
     padding-bottom: 25px;
 }
 
-
-/* 나중에 별점 아이콘 수정 */
 .overview-block .review-box .rating {
     font-size: 8px;
-    /* margin-bottom: -10px; */
 }
-
 
 .overview-block .review-box .semester {
     color: #a6a6a6;
@@ -160,7 +154,6 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
-
 
 .overview-block .review-box .more-review {
     width: 100%;
@@ -269,13 +262,12 @@
 .review-content-block {
     display: flex;
     flex-direction: column;
-    /* height: 100%; */
     height: calc(100vh - (110px));
 }
 
 .review-content-block > .all-reviews-list {
-    flex-grow: 1; /* ★★★ 핵심: 남는 공간을 모두 차지하도록 만듭니다. */
-    overflow-y: auto; /* 세로 스크롤은 필요할 때만 자동으로 나타나게 합니다. */
+    flex-grow: 1; /* 남는 공간을 모두 차지 */
+    overflow-y: auto; 
     min-height: 0; 
 }
 
@@ -290,7 +282,6 @@
 
 .review-content-block > .all-reviews-list .review-card > .rating {
     font-size: 10px;
-    /* margin-bottom: -5px; */
     padding-bottom: 5px;
 }
 

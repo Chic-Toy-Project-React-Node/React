@@ -145,6 +145,7 @@ ul, li {
     width: 100%;
 }
 
+/* 강의 블록 색상 지정 */
 .subject.color-1 { background-color: #dcedff; } /* 파란색 계열 */
 .subject.color-2 { background-color: #dfffe1; } /* 녹색 계열 */
 .subject.color-3 { background-color: #fff4dc; } /* 주황색 계열 */

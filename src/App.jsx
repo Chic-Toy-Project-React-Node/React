@@ -13,7 +13,6 @@ import Calculator from './components/Calculator.jsx';
 import FreeBoard from './components/FreeBoard.jsx';
 import MainPage from './components/MainPage.jsx';
 
-
 function App() {
     return (
         <BrowserRouter>
