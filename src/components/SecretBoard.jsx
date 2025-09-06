@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./css/FreeBoard.css";
+import "./css/SecretBoard.css";
 import BoardDirectory from "./BoardDirectory";
 
-function FreeBoard() {
+function SecretBoard() {
   const [posts, setPosts] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState("");
@@ -23,9 +23,9 @@ function FreeBoard() {
   };
 
   return (
-    <div className="freeBoard">
+    <div className="secretBoard">
       <BoardDirectory />
-      <h1>자유 게시판</h1>
+      <h1>비밀 게시판</h1>
 
       {/* 글 작성 버튼 / 입력 폼 */}
       <div className="write-box">
@@ -70,4 +70,4 @@ function FreeBoard() {
   );
 }
 
-export default FreeBoard;
+export default SecretBoard;

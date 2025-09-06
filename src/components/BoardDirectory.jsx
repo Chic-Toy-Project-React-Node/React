@@ -10,13 +10,13 @@ function BoardDirectory() {
       {/* 1줄: 자유/비밀/새내기 */}
       <div className="line">
         <p><Link to="/board/free">자유 게시판</Link></p>
-        <p><a href="/">비밀 게시판</a></p>
-        <p><a href="/">새내기 게시판</a></p>
+        <p><a href="/board/secret">비밀 게시판</a></p>
+        <p><a href="/board/new">새내기 게시판</a></p>
       </div>
 
       {/* 2줄: 취업·진로 */}
       <div className="line">
-        <p><a href="/">취업/진로 게시판</a></p>
+        <p><a href="/board/career">취업/진로 게시판</a></p>
       </div>
 
       {/* 3줄: 광운대신문사 / KW Times */}

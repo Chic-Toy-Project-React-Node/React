@@ -12,6 +12,9 @@ import CourseReview from './components/CourseReview.jsx';
 import Calculator from './components/Calculator.jsx';
 import FreeBoard from './components/FreeBoard.jsx';
 import MainPage from './components/MainPage.jsx';
+import SecretBoard from './components/SecretBoard.jsx'
+import NewBoard from './components/NewBoard.jsx'
+import CareerBoard from './components/CareerBoard.jsx'
 
 
 function App() {
@@ -28,6 +31,15 @@ function App() {
 
                          {/* 자유게시판 */}
                         <Route path="/board/free" element={<FreeBoard />} />
+
+                        {/* 비밀 게시판 */}
+                        <Route path="/board/secret" element={<SecretBoard />}></Route>
+
+                        {/* 새내기 게시판 */}
+                        <Route path="/board/new" element={<NewBoard />}></Route>
+
+                        {/* 진로/취업 게시판*/}
+                        <Route path="/board/career" element={<CareerBoard />}></Route>
 
                         {/* 시간표 */}
                         <Route path="/schedule" element={<Schedule />} />

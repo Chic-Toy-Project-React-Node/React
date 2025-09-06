@@ -1,17 +1,17 @@
-.freeBoard .board {
+.careerBoard .board {
   max-width: 700px;
   margin: 0 auto;
 }
-.freeBoard h1 {
+.careerBoard h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height :7vh;
-  border : 1px solid #F9F9F9;
+  border : 1px solid #f9f9f9;
   margin-bottom : 10px;
 }
 
-.freeBoard .write-box {
+.careerBoard .write-box {
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 20px;
@@ -20,12 +20,12 @@
   cursor: pointer;
 }
 
-.freeBoard .write-placeholder {
+.careerBoard .write-placeholder {
   color: #888;
 }
 
-.freeBoard .write-form input,
-.freeBoard .write-form textarea {
+.careerBoard .write-form input,
+.careerBoard .write-form textarea {
   width: 100%;
   padding: 8px;
   margin-bottom: 8px;
@@ -34,13 +34,13 @@
 }
 
 /* textarea 높이 늘리기 */
-.freeBoard .write-form textarea {
+.careerBoard .write-form textarea {
   min-height: 150px; /* 원하는 만큼 조절 가능 */
   resize: vertical;  /* 사용자가 세로 길이 조절 가능 */
 }
 
 /* 글 올리기 버튼 */
-.freeBoard .write-form .submit-btn {
+.careerBoard .write-form .submit-btn {
   background: red;
   color: white;
   border: none;
@@ -52,21 +52,21 @@
   margin-left: auto; /* 오른쪽 정렬 */
 }
 
-.freeBoard .write-form .submit-btn:hover {
+.careerBoard .write-form .submit-btn:hover {
   background: darkred;
 }
 
-.freeBoard .post-list {
+.careerBoard .post-list {
   list-style: none;
   padding: 0;
 }
 
-.freeBoard .post-item {
+.careerBoard .post-item {
   border-bottom: 1px solid #eee;
   padding: 10px 0;
 }
 
-.freeBoard .time {
+.careerBoard .time {
   font-size: 12px;
   color: #999;
 }
