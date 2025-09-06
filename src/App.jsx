@@ -16,7 +16,6 @@ import SecretBoard from './components/SecretBoard.jsx'
 import NewBoard from './components/NewBoard.jsx'
 import CareerBoard from './components/CareerBoard.jsx'
 
-
 function App() {
     return (
         <BrowserRouter>

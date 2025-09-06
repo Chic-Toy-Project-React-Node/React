@@ -1,4 +1,6 @@
 import React from 'react';
+
+// 아이콘 import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons"; 
 

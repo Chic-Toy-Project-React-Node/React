@@ -1,14 +1,16 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './css/Classroom.css';
+
+// 아이콘 import 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// [추가] 별 아이콘(채워진 것과 빈 것)을 import 합니다.
-import { faMagnifyingGlass, faStar as faStarSolid, faArrowLeft, faCircleExclamation } from "@fortawesome/free-solid-svg-icons"; 
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { faMagnifyingGlass, faStar as faStarSolid, faCircleExclamation } from "@fortawesome/free-solid-svg-icons"; 
 
 function Classroom() {
-    // [추가] useLocation 훅을 사용하여 현재 위치 정보를 가져옵니다.
+    // useLocation: 현재 위치 정보 가져오기
     const location = useLocation();
+
+    // useNavigate: 페이지를 이동시키는 함수 반환
     const navigate = useNavigate();
 
     // 강의평 목록을 저장할 state (추후 api로 불러올 것)
@@ -38,31 +40,31 @@ function Classroom() {
                     content: '인생 강의입니다! 다만 팀플원 잘 만나는게 중요해요.'
                 },
                 {
-                    reviewId: 104, // 리뷰만의 고유 ID
+                    reviewId: 104, 
                     rating: 4,
                     semester: '24년 2학기 수강자',
                     content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
                 },
                 {
-                    reviewId: 105, // 리뷰만의 고유 ID
+                    reviewId: 105, 
                     rating: 4,
                     semester: '24년 2학기 수강자',
                     content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
                 },
                 {
-                    reviewId: 106, // 리뷰만의 고유 ID
+                    reviewId: 106, 
                     rating: 4,
                     semester: '24년 2학기 수강자',
                     content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
                 },
                 {
-                    reviewId: 107, // 리뷰만의 고유 ID
+                    reviewId: 107, 
                     rating: 4,
                     semester: '24년 2학기 수강자',
                     content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
                 },
                 {
-                    reviewId: 108, // 리뷰만의 고유 ID
+                    reviewId: 108,
                     rating: 4,
                     semester: '24년 2학기 수강자',
                     content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
@@ -240,7 +242,7 @@ function Classroom() {
         }
     ]);
 
-    // [추가] 화면 전환을 위한 state
+    // 강의 검색 화면 전환을 위한 state
     const [isShowingSearchResults, setIsShowingSearchResults] = useState(false);
 
     // 실시간 입력값과 확정된 검색어를 객체로 묶어서 관리
@@ -279,7 +281,7 @@ function Classroom() {
                 }
                 // 검색 타입이 '교수명'일 경우 -> 완전 일치 (===)
                 if (submittedQuery.type === 'profName') {
-                    // course.profName도 소문자로 바꿔서 비교해야 정확합니다.
+                    // course.profName도 소문자로 바꿔서 비교 
                     return course.profName && course.profName.toLowerCase() === lowerCaseTerm;
                 }
                 return false;
@@ -296,52 +298,50 @@ function Classroom() {
         setSearchQuery(prev => ({ ...prev, term: e.target.value }));
     };
 
-    // ★★★ 라디오 버튼 실시간 검색 적용을 위한 핵심 핸들러 ★★★
+    // 과목명, 교수명 라디오 버튼 핸들러
     const handleSearchTypeChange = (e) => {
         const newType = e.target.value;
-        // 1. 실시간 쿼리(UI)를 먼저 업데이트
+        // 실시간 쿼리(UI)를 먼저 업데이트
         setSearchQuery(prev => ({ ...prev, type: newType }));
 
-        // 2. 검색 결과 화면이라면, '제출된' 쿼리도 즉시 업데이트하여 검색을 재실행
+        // 검색 결과 화면이라면, '제출된' 쿼리도 즉시 업데이트하여 검색을 재실행
         if (isShowingSearchResults) {
             setSubmittedQuery(prev => ({ ...prev, type: newType }));
         }
     };
 
-    // 폼 제출 핸들러
+    // 검색 폼 제출 핸들러
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         setSubmittedQuery(searchQuery);
         setIsShowingSearchResults(true);
     };
 
-
+    // 평균 별점 계산 
     const calculateAvgRating = (reviews) => {
         if (!reviews || reviews.length === 0) return 0;
         const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
         return (totalRating / reviews.length);
     };
 
-    // [추가] 별점 렌더링 함수
-    // 점수(rating)를 받아서 점수만큼 채워진 별 아이콘을 배열로 반환합니다.
+    // 별점 렌더링 함수
+    // 점수(rating)를 받아서 점수만큼 채워진 별 아이콘을 배열로 반환
     const renderStars = (rating) => {
         const stars = [];
-        const fullStars = Math.floor(rating); // 정수 부분만 채워진 별로 표시
+        const fullStars = Math.floor(rating); 
         for (let i = 0; i < 5; i++) {
             if (i < fullStars) {
-                // 채워진 별 (solid)
                 stars.push(<FontAwesomeIcon key={i} icon={faStarSolid} color="#ffca37" size="2xs" />);
             } else {
-                // 빈 별 (regular)
                 stars.push(<FontAwesomeIcon key={i} icon={faStarSolid} color="lightgray" size="2xs" />);
             }
         }
         return stars;
     };
 
-    // --- [핵심] isShowingSearchResults 값에 따라 완전히 다른 JSX를 return ---
+    // 강의 검색에 따라 완전히 다른 UI 구현
     if (isShowingSearchResults) {
-        // --- 1. 검색 결과 뷰 ---
+        // 검색 결과 뷰
         return (
             <div className="search-page-container">
                 <div className="search-page-header">
@@ -384,7 +384,7 @@ function Classroom() {
         );
     }
 
-    // --- 2. 기본 뷰 ---
+    // 기본 뷰
     return (
         <div className="classroom-container">
             <div className="side-bar">

@@ -98,7 +98,6 @@
     margin-bottom: 5px;
 }
 
-
 .review-card .user-season {
     color: #a6a6a6;
     font-size: 12px;
@@ -162,14 +161,12 @@
     cursor: pointer;
 }
 
-/* 수정된 최종 코드 */
 .search-page-container > .search-page-header > .search-type-selector label:has(input[type="radio"]:checked) {
     font-weight: bold;
     color: #f91F15;
 }
 
 .search-type-selector input[type="radio"] {
-    /* 이 한 줄로 체크되었을 때의 색상이 변경됩니다! */
     accent-color: #f91F15;
 }
 
@@ -180,11 +177,9 @@
     margin: 0 auto;
     width: 460px;
     gap: 16px;
-    /* flex-wrap: wrap; */
 
-    /* 1. 스크롤이 발생할 수 있도록 최대 높이 지정 (값은 원하는대로 조절) */
+    /* 스크롤이 발생할 수 있도록 최대 높이 지정 (값은 원하는대로 조절) */
     height: calc(100vh - (220px));
-    /* 2. 지정한 높이를 초과하면 세로 스크롤바 생성 */
     overflow-y: auto;
 }
 

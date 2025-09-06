@@ -3,6 +3,8 @@ import './css/Schedule.css';
 import TimeTable from './TimeTable';
 import AddCourse from './AddCourse';
 import ScheduleSetting from './ScheduleSetting';
+
+// 아이콘 import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faGear, faDownLong } from "@fortawesome/free-solid-svg-icons"; 
 
