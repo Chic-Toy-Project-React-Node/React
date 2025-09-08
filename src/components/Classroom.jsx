@@ -6,6 +6,9 @@ import './css/Classroom.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faStar as faStarSolid, faCircleExclamation } from "@fortawesome/free-solid-svg-icons"; 
 
+// api 연동
+import axios from 'axios';
+
 function Classroom() {
     // useLocation: 현재 위치 정보 가져오기
     const location = useLocation();
@@ -14,233 +17,271 @@ function Classroom() {
     const navigate = useNavigate();
 
     // 강의평 목록을 저장할 state (추후 api로 불러올 것)
-    const [courses, setCourses] = useState([
-        {
-            courseId: 1,
-            courseName: '소프트웨어공학개론',
-            profName: '김철수',
-            // 이 강의에 대한 여러 개의 리뷰를 배열로 관리
-            reviews: [
-                {
-                    reviewId: 101, // 리뷰만의 고유 ID
-                    rating: 4,
-                    semester: '24년 2학기 수강자',
-                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
-                },
-                {
-                    reviewId: 102,
-                    rating: 5,
-                    semester: '23년 2학기 수강자',
-                    content: '인생 강의입니다! 다만 팀플원 잘 만나는게 중요해요.'
-                },
-                {
-                    reviewId: 103,
-                    rating: 5,
-                    semester: '23년 2학기 수강자',
-                    content: '인생 강의입니다! 다만 팀플원 잘 만나는게 중요해요.'
-                },
-                {
-                    reviewId: 104, 
-                    rating: 4,
-                    semester: '24년 2학기 수강자',
-                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
-                },
-                {
-                    reviewId: 105, 
-                    rating: 4,
-                    semester: '24년 2학기 수강자',
-                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
-                },
-                {
-                    reviewId: 106, 
-                    rating: 4,
-                    semester: '24년 2학기 수강자',
-                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
-                },
-                {
-                    reviewId: 107, 
-                    rating: 4,
-                    semester: '24년 2학기 수강자',
-                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
-                },
-                {
-                    reviewId: 108,
-                    rating: 4,
-                    semester: '24년 2학기 수강자',
-                    content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
-                },
-            ]
-        },
-        {
-            courseId: 2,
-            courseName: '자료구조',
-            profName: '이영희',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 3,
-            courseName: 'eqrqrqere',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 4,
-            courseName: 'eqrqrqeㄹㅇㅁㄻㅇre',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 5,
-            courseName: 'eqrqrㅎㅇㅎㅁㅎㅎㅇ',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 6,
-            courseName: 'eqrㅇㅇㅇㅇㅇㅇㅇㅇㅇqrqere',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 7,
-            courseName: 'eq11111rqrqere',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 8,
-            courseName: 'eqrㄹㅇㅁqrqeㄹㅇㅁㄻㅇre',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 9,
-            courseName: '55',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 10,
-            courseName: 'eqrㅇㅇㅇㅇㄹㅇㅇㅇㅇㅇㅇㅇqrqere',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 11,
-            courseName: 'eqrqrㄹㅇㄹㅇㄴㄴqere',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 12,
-            courseName: 'eqrqrqeㄹㅇㄱㅎㄴㄱㄱㅁㄻㅇre',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 13,
-            courseName: 'eqrqrㅎㅇㅎㅍㅍㅍㅍㅁㅎㅎㅇ',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        },
-        {
-            courseId: 14,
-            courseName: 'eqrㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇqrqere',
-            profName: '김철수',
-            reviews: [
-                {
-                    reviewId: 201,
-                    rating: 3,
-                    semester: '25년 1학기 수강자',
-                    content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
-                }
-            ]
-        }
-    ]);
+    // const [courses, setCourses] = useState([
+    //     {
+    //         courseId: 1,
+    //         courseName: '소프트웨어공학개론',
+    //         profName: '김철수',
+    //         // 이 강의에 대한 여러 개의 리뷰를 배열로 관리
+    //         reviews: [
+    //             {
+    //                 reviewId: 101, // 리뷰만의 고유 ID
+    //                 rating: 4,
+    //                 semester: '24년 2학기 수강자',
+    //                 content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+    //             },
+    //             {
+    //                 reviewId: 102,
+    //                 rating: 5,
+    //                 semester: '23년 2학기 수강자',
+    //                 content: '인생 강의입니다! 다만 팀플원 잘 만나는게 중요해요.'
+    //             },
+    //             {
+    //                 reviewId: 103,
+    //                 rating: 5,
+    //                 semester: '23년 2학기 수강자',
+    //                 content: '인생 강의입니다! 다만 팀플원 잘 만나는게 중요해요.'
+    //             },
+    //             {
+    //                 reviewId: 104, 
+    //                 rating: 4,
+    //                 semester: '24년 2학기 수강자',
+    //                 content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+    //             },
+    //             {
+    //                 reviewId: 105, 
+    //                 rating: 4,
+    //                 semester: '24년 2학기 수강자',
+    //                 content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+    //             },
+    //             {
+    //                 reviewId: 106, 
+    //                 rating: 4,
+    //                 semester: '24년 2학기 수강자',
+    //                 content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+    //             },
+    //             {
+    //                 reviewId: 107, 
+    //                 rating: 4,
+    //                 semester: '24년 2학기 수강자',
+    //                 content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+    //             },
+    //             {
+    //                 reviewId: 108,
+    //                 rating: 4,
+    //                 semester: '24년 2학기 수강자',
+    //                 content: '팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요. 팀플이 많지만 얻어가는 것이 정말 많은 수업입니다. 교수님 설명이 명쾌해요.'
+    //             },
+    //         ]
+    //     },
+    //     {
+    //         courseId: 2,
+    //         courseName: '자료구조',
+    //         profName: '이영희',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 3,
+    //         courseName: 'eqrqrqere',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 4,
+    //         courseName: 'eqrqrqeㄹㅇㅁㄻㅇre',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 5,
+    //         courseName: 'eqrqrㅎㅇㅎㅁㅎㅎㅇ',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 6,
+    //         courseName: 'eqrㅇㅇㅇㅇㅇㅇㅇㅇㅇqrqere',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 7,
+    //         courseName: 'eq11111rqrqere',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 8,
+    //         courseName: 'eqrㄹㅇㅁqrqeㄹㅇㅁㄻㅇre',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 9,
+    //         courseName: '55',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 10,
+    //         courseName: 'eqrㅇㅇㅇㅇㄹㅇㅇㅇㅇㅇㅇㅇqrqere',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 11,
+    //         courseName: 'eqrqrㄹㅇㄹㅇㄴㄴqere',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 12,
+    //         courseName: 'eqrqrqeㄹㅇㄱㅎㄴㄱㄱㅁㄻㅇre',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 13,
+    //         courseName: 'eqrqrㅎㅇㅎㅍㅍㅍㅍㅁㅎㅎㅇ',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         courseId: 14,
+    //         courseName: 'eqrㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇqrqere',
+    //         profName: '김철수',
+    //         reviews: [
+    //             {
+    //                 reviewId: 201,
+    //                 rating: 3,
+    //                 semester: '25년 1학기 수강자',
+    //                 content: '과제 양이 상당해서 따라가기 조금 벅찼습니다. 시험은 평이한 수준.'
+    //             }
+    //         ]
+    //     }
+    // ]);
+
+    const [courses, setCourses] = useState([]);
+
+    // api 로딩 및 에러 상태 관리
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // 컴포넌트가 처음 렌더링 될 때 API 호출
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                // API 호출
+                const response = await axios.get('http://localhost:3000/api/lectures');
+
+                // [중요] 어떤 데이터가 오는지 여기서 확인!
+                console.log('서버로부터 받은 실제 응답 데이터:', response.data);
+
+                // 기존 courses 구조에 맞게 서버에서 받은 데이터 변환 (mapping)
+                const formattedCourses = response.data.data.map(course => ({
+                    courseId: course.id,
+                    courseName: course.title,
+                    profName: course.instructor,
+                    
+                    // 추후 추가
+                    reviews: []
+                }));
+
+                setCourses(formattedCourses);
+            } catch (e) {
+                setError(e);
+                console.log('강의 데이터를 불러오는 데 실패했습니다.', e);
+            }
+
+            setLoading(false);
+        };
+
+        fetchCourses();
+    }, []); // 빈 배열을 전달하여 최초 1회만 실행
 
     // 강의 검색 화면 전환을 위한 state
     const [isShowingSearchResults, setIsShowingSearchResults] = useState(false);
